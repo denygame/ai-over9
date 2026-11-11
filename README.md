@@ -213,6 +213,12 @@ Each release includes a `.sha256` file to verify the download:
 shasum -a 256 -c AIOver9-<version>-macos-arm64.dmg.sha256
 ```
 
+### Windows (preview)
+
+Releases also include `AIOver9-<version>-windows-x64-setup.exe` for Windows 10 / 11 (x64). It is a per-user install, so no administrator rights are needed. The installer is not code-signed yet: if SmartScreen warns, choose **More info › Run anyway**.
+
+The Windows version covers the core features: Claude Code and Codex hooks, keeping the PC awake while agents work, "Finish, then sleep" (shut down, hibernate or sleep), usage limits, Telegram and signed in-app updates. Fan control and the lock-screen card are macOS only.
+
 ---
 
 ## First-time setup
