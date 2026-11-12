@@ -10,6 +10,7 @@ AI Over9 keeps your computer awake while the agents work, lets it rest when they
 [**⬇️ Download the latest release**](https://github.com/denygame/ai-over9/releases/latest)
 
 **macOS** 14 Sonoma or later · Apple silicon — native menu bar app
+
 **Windows** 10 / 11 · x64 — notification-area app (preview)
 
 </div>
