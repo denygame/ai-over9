@@ -4,10 +4,13 @@
 
 **Your AI works. Your machine rests.**
 
-A native macOS menu bar app for people who let AI coding agents work for them — Claude Code, Codex, Cursor, Gemini and more.
-AI Over9 keeps your Mac awake while the agents work, puts it to sleep when they are done, keeps it cool, and tells you everything on Telegram.
+For people who let AI coding agents work for them — Claude Code, Codex, Cursor, Gemini and more.
+AI Over9 keeps your computer awake while the agents work, lets it rest when they are done, and tells you everything on Telegram.
 
-[**⬇️ Download the latest release**](https://github.com/denygame/ai-over9/releases/latest) · macOS 14 Sonoma or later · Apple silicon
+[**⬇️ Download the latest release**](https://github.com/denygame/ai-over9/releases/latest)
+
+**macOS** 14 Sonoma or later · Apple silicon — native menu bar app
+**Windows** 10 / 11 · x64 — notification-area app (preview)
 
 </div>
 
@@ -16,6 +19,7 @@ AI Over9 keeps your Mac awake while the agents work, puts it to sleep when they 
 ## Contents
 
 - [Why AI Over9](#why-ai-over9)
+- [macOS and Windows](#macos-and-windows)
 - [Quick actions](#quick-actions)
 - [Features](#features)
   - [AI agent monitoring](#ai-agent-monitoring)
@@ -26,12 +30,14 @@ AI Over9 keeps your Mac awake while the agents work, puts it to sleep when they 
   - [Telegram remote](#telegram-remote)
   - [Notifications](#notifications)
   - [Lock screen status](#lock-screen-status)
+  - [Menu bar apps and shortcut](#menu-bar-apps-and-shortcut)
   - [Claude Remote Control](#claude-remote-control)
   - [Automations, schedules and power modes](#automations-schedules-and-power-modes)
   - [Smart devices](#smart-devices)
   - [System and storage](#system-and-storage)
 - [Installation](#installation)
 - [First-time setup](#first-time-setup)
+- [Windows](#windows)
 - [Updates](#updates)
 - [Privacy and security](#privacy-and-security)
 - [Permissions](#permissions)
@@ -55,7 +61,29 @@ AI Over9 sits in the menu bar and answers the questions you would otherwise keep
 - **How much of my plan is left?** See your 5-hour and weekly limits, with the real numbers from your account.
 - **What happened while I was away?** Telegram tells you, and lets you check or act from your phone.
 
-Everything runs locally on your Mac. There is no account, no analytics and no telemetry.
+Everything runs locally on your computer. There is no account, no analytics and no telemetry.
+
+---
+
+## macOS and Windows
+
+Both apps share the same idea, the same Telegram commands and the same release: every version is published for both platforms at once.
+
+| | macOS | Windows (preview) |
+|---|---|---|
+| Claude Code and Codex hooks | ✅ | ✅ |
+| Other agents detected from the running process | ✅ | — |
+| Keep awake while agents work | ✅ | ✅ |
+| Finish, then sleep | ✅ sleep | ✅ shut down, hibernate or sleep |
+| Usage limits and token totals | ✅ | ✅ |
+| Telegram remote and notifications | ✅ full command set | ✅ core commands |
+| Fans and cooling | ✅ | — |
+| Lock screen status | ✅ | — |
+| Menu bar apps list and global shortcut | ✅ | — |
+| Automations, schedules, smart devices | ✅ | — |
+| Signed automatic updates | ✅ | ✅ |
+
+The rest of this page describes the macOS app; see [Windows](#windows) for what is specific to Windows.
 
 ---
 
@@ -78,6 +106,8 @@ The three things you open the app for, one click each — on the Overview and in
 - **Claude Code** (terminal and VS Code) and **Codex** are followed through their official hooks. AI Over9 installs its own small hook entries next to yours. Your configuration is merged and backed up, never replaced, and removing the hooks deletes only AI Over9's entries.
 - **Other agents are detected automatically** from the running process, without any setup: Cursor Agent, Gemini CLI, Qwen Code, Kimi CLI, Aider, OpenCode, Goose, Amp, Crush and Factory Droid. Monitoring is more limited for these (start, working, exit), and is labelled as such.
 - **Session states:** working, waiting for approval, idle, finished, interrupted, and unknown when a session goes silent. Short background sessions that never do any work are ignored.
+- **Background tasks:** when an agent keeps working in the background (background commands or agents), the session counts as working until the last task finishes — one "finished" message, and the Mac stays awake meanwhile.
+- **Custom config folders:** if you moved Claude Code's or Codex's folder (`CLAUDE_CONFIG_DIR`, `CODEX_HOME`), choose it in Integrations; hooks, limits and token totals follow it.
 - **Missions:** a night's work is grouped automatically when you turn on *Finish, then sleep*, and a report is shown when it is done.
 - **"Why is my Mac awake?"** explains in plain words: which agents keep it awake, which other apps hold it awake, and what still blocks sleep.
 
@@ -106,6 +136,7 @@ The three things you open the app for, one click each — on the Overview and in
   - **Cool now:** a temporary cooling run that ends when the CPU is cool again (or after a time limit), then returns to Automatic.
   - **Auto-cool:** starts a cooling run by itself when the CPU reaches 85 °C.
   - **Saved fan profiles.**
+  - **From the menu bar:** back to Automatic in one click, or a quick fixed speed (quiet, medium, strong, maximum) or a saved profile.
 - **Safety first:**
   - the helper only accepts fixed fan commands and checks every value against your Mac's limits;
   - the fans return to Automatic when you quit the app, when the temperature gets high, or if AI Over9 stops responding (watchdog);
@@ -161,6 +192,11 @@ Pair your own Telegram bot (one bot per Mac). Roles control who can do what: **v
 - When everything is done, it shows the sleep countdown.
 - It is display only and can be turned off.
 
+### Menu bar apps and shortcut
+
+- **When the menu bar is full**, or the notch covers part of it, macOS hides icons with no way to reach them. The AI Over9 panel shows the icons of every app as a compact grid, marks the hidden ones, and opens any of them with a click (uses the Accessibility permission; it only reads the icons and clicks the one you choose).
+- **A global keyboard shortcut** (⌥⌘9 by default, changeable in Settings › General) opens the AI Over9 panel from any app — also when its own icon is hidden.
+
 ### Claude Remote Control
 
 - One switch turns on Claude Code's Remote Control for every new session, in the terminal and in VS Code, so you can continue them from claude.ai or the Claude app.
@@ -200,6 +236,8 @@ Pair your own Telegram bot (one bot per Mac). Roles control who can do what: **v
 
 ## Installation
 
+### macOS
+
 1. Download `AIOver9-<version>-macos-arm64.dmg` from the [latest release](https://github.com/denygame/ai-over9/releases/latest).
 2. Open the DMG and drag **AI Over9** to **Applications**.
 3. **First launch only:** the app is signed by its author but not notarized by Apple, so macOS asks once.
@@ -213,11 +251,13 @@ Each release includes a `.sha256` file to verify the download:
 shasum -a 256 -c AIOver9-<version>-macos-arm64.dmg.sha256
 ```
 
-### Windows (preview)
+### Windows
 
-Releases also include `AIOver9-<version>-windows-x64-setup.exe` for Windows 10 / 11 (x64). It is a per-user install, so no administrator rights are needed. The installer is not code-signed yet: if SmartScreen warns, choose **More info › Run anyway**.
+1. Download `AIOver9-<version>-windows-x64-setup.exe` from the [latest release](https://github.com/denygame/ai-over9/releases/latest).
+2. Run it. It installs for your user only, so no administrator rights are needed.
+3. The installer is not code-signed yet: if SmartScreen warns, choose **More info › Run anyway**.
 
-The Windows version covers the core features: Claude Code and Codex hooks, keeping the PC awake while agents work, "Finish, then sleep" (shut down, hibernate or sleep), usage limits, Telegram and signed in-app updates. Fan control and the lock-screen card are macOS only.
+See [Windows](#windows) for setup and details.
 
 ---
 
@@ -233,11 +273,27 @@ The Windows version covers the core features: Claude Code and Codex hooks, keepi
 
 ---
 
+## Windows
+
+The Windows app is a preview: it covers the core of AI Over9 and lives in the notification area (next to the clock). Closing its window keeps it running there.
+
+- **Agents:** connect Claude Code and Codex in **Agents** (your settings files are merged and backed up first). If you moved their folders, pick them there too.
+- **Keep awake:** the PC stays awake while an agent works (the screen can still turn off); a manual "keep awake" for 30 minutes or 2 hours is one click away, also from the tray menu.
+- **Finish, then sleep:** once every agent is done and nobody uses the PC, a countdown runs and the PC is **shut down** (default), **hibernated** or **put to sleep** — your choice in Settings. Shutdown is the default because sleep on many Windows laptops (Modern Standby) keeps using battery and can wake by itself. Shutdown is never forced: apps with unsaved work can still ask you to save.
+- **Usage:** plan limits from your Claude and ChatGPT accounts, token totals from local transcripts (numbers only).
+- **Telegram:** pair your bot with a code, roles (viewer / operator / owner), `/status`, `/why`, `/sessions`, `/usage`, `/awake`, `/fts`, `/sleep` with a confirmation button, `/users`, `/lang`. Messages when an agent finishes, needs approval or hits a limit, before the PC turns off, when the app closes, when Windows shuts down and when the lid is closed while agents work.
+- **Secrets:** the bot token is stored in Windows Credential Manager only.
+- **Data:** `%APPDATA%\AIOver9`. To uninstall, use *Apps › Installed apps*, then delete that folder if you want.
+- **Updates:** checked every 4 hours; nothing is installed until you click **Download and install** in About. Updates are signed and verified before installing.
+- **Not on Windows:** fan control, the lock screen card, the menu bar apps list, automations and smart devices.
+
+---
+
 ## Updates
 
 - AI Over9 updates itself:
-  - it checks once a day, or whenever you choose **Settings › Updates › Check for updates**;
-  - when a new version is out, a message drops down from the menu bar icon — click it to see what's new and install;
+  - it checks every 4 hours, or whenever you choose **Settings › Updates › Check for updates**;
+  - when a new version is out, it is shown at the top of the menu bar panel and in a message under the menu bar icon that stays until you open it — click to see what's new and install;
   - the app restarts by itself.
 - Your settings, Telegram pairing, Keychain items and the fan helper are kept.
 - **Security:** every update is verified before it is installed — it must carry the author's signature and be signed with the same certificate as the installed app.
@@ -272,7 +328,7 @@ The Windows version covers the core features: Claude Code and Codex hooks, keepi
 | Notifications | Alerts on this Mac | First launch |
 | Administrator password | Installing the fan helper | Only if you install it |
 | Automation (System Events) | Graceful shutdown or screen lock | Only if you enable those automations |
-| Accessibility | Sending the screen-lock shortcut | Only if you use the lock-screen automation |
+| Accessibility | Listing and opening other apps' menu bar icons; sending the screen-lock shortcut | Only when you open *Menu bar apps* or use the lock-screen automation |
 | Documents / Desktop / Downloads | Measuring build folders in your projects | Only when you scan storage there |
 
 ---
@@ -297,6 +353,12 @@ Turn on *Exact numbers* on the Usage page. Without it, AI Over9 shows token coun
 **macOS says the app cannot be opened.**
 See [Installation](#installation), step 3. This is needed once.
 
+**The AI Over9 icon is not in the menu bar.**
+The menu bar is probably full (or behind the notch). Press ⌥⌘9 (or your own shortcut) to open the panel, or open AI Over9 from Spotlight to show its window.
+
+**Windows: SmartScreen blocks the installer.**
+The installer is not code-signed yet. Choose **More info › Run anyway**.
+
 ---
 
 ## Uninstall
@@ -317,9 +379,10 @@ See [Installation](#installation), step 3. This is needed once.
 ## License
 
 - Copyright © 2026 HuyNT. All rights reserved.
-- AI Over9 is provided "as is", without warranty of any kind. You use automations that can sleep or shut down your Mac, or control fans or devices, at your own risk.
+- AI Over9 is provided "as is", without warranty of any kind. You use automations that can sleep or shut down your computer, or control fans or devices, at your own risk.
 - **Third-party software:**
-  - [Sparkle](https://sparkle-project.org) (MIT) for updates;
+  - [Sparkle](https://sparkle-project.org) (MIT) for updates on macOS;
+  - Windows: [Tauri](https://tauri.app) (MIT / Apache-2.0) and open-source Rust crates (MIT / Apache-2.0); the window uses Microsoft Edge WebView2;
   - native fan control was written for AI Over9, informed by the MIT-licensed projects [AutoFansMac](https://github.com/garyhooi/AutoFansMac), [MacFanControl](https://github.com/raminsharifi/MacFanControl) and [macsfan](https://github.com/matejrondzik/macsfan).
 
 ---
