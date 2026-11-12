@@ -11,7 +11,7 @@ AI Over9 keeps your computer awake while the agents work, lets it rest when they
 
 **macOS** 14 Sonoma or later · Apple silicon — native menu bar app
 
-**Windows** 10 / 11 · x64 — notification-area app (preview)
+**Windows** 10 / 11 · x64 and ARM64 — notification-area app (preview)
 
 </div>
 
@@ -70,7 +70,7 @@ Everything runs locally on your computer. There is no account, no analytics and 
 
 Both apps share the same idea, the same Telegram commands and the same release: every version is published for both platforms at once.
 
-| | macOS | Windows (preview) |
+| | macOS | Windows (preview, x64 and ARM64) |
 |---|---|---|
 | Claude Code and Codex hooks | ✅ | ✅ |
 | Other agents detected from the running process | ✅ | — |
@@ -254,7 +254,11 @@ shasum -a 256 -c AIOver9-<version>-macos-arm64.dmg.sha256
 
 ### Windows
 
-1. Download `AIOver9-<version>-windows-x64-setup.exe` from the [latest release](https://github.com/denygame/ai-over9/releases/latest).
+1. Download the installer for your PC from the [latest release](https://github.com/denygame/ai-over9/releases/latest):
+   - `AIOver9-<version>-windows-x64-setup.exe` — most PCs (Intel / AMD);
+   - `AIOver9-<version>-windows-arm64-setup.exe` — Windows on ARM (Snapdragon, Surface Pro X / 11…).
+
+   Not sure? *Settings › System › About › System type* says "x64-based" or "ARM-based".
 2. Run it. It installs for your user only, so no administrator rights are needed.
 3. The installer is not code-signed yet: if SmartScreen warns, choose **More info › Run anyway**.
 
