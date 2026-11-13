@@ -1,25 +1,23 @@
-<div align="center">
+<p align="center">
+  <img src="images/hero.jpg" alt="AI Over9: the main window, the menu bar panel and a Telegram chat with several agent sessions" width="100%">
+</p>
 
-# 🌙 AI Over9
+<h3 align="center">Run your AI coding agents from anywhere. Your computer works — and rests.</h3>
 
-**Run your AI coding agents from anywhere. Your computer works — and rests.**
+<p align="center">
+  AI Over9 watches every Claude Code and Codex session on your computer, brings their answers to your phone,<br>
+  lets you reply to any of them from Telegram, keeps the computer awake while they work and puts it to sleep when they are done.
+</p>
 
-AI Over9 watches every Claude Code and Codex session on your computer, brings their answers to your phone,
-lets you reply to any of them from Telegram, keeps the computer awake while they work and puts it to sleep when they are done.
+<p align="center">
+  <a href="https://github.com/denygame/ai-over9/releases/latest"><b>⬇️ Download the latest release</b></a>
+  &nbsp;·&nbsp; <a href="README_VI.md">🇻🇳 Vietnamese</a>
+  &nbsp;·&nbsp; <a href="docs/telegram.md">📖 Guides</a>
+</p>
 
-[**⬇️ Download the latest release**](https://github.com/denygame/ai-over9/releases/latest) · [🇻🇳 Vietnamese](README_VI.md)
-
-**macOS** 14 Sonoma or later · Apple silicon — native menu bar app
-
-**Windows** 10 / 11 · x64 and ARM64 · **Linux** x64 — tray app (preview)
-
-<br>
-
-<img src="images/dashboard.png" alt="AI Over9 main window: two agents working, the Mac kept awake, plan usage" width="640">
-&nbsp;
-<img src="images/menu.png" alt="AI Over9 menu bar panel" width="230">
-
-</div>
+<p align="center">
+  <b>macOS</b> 14 or later · Apple silicon &nbsp;|&nbsp; <b>Windows</b> 10 / 11 · x64, ARM64 &nbsp;|&nbsp; <b>Linux</b> x64 <i>(Windows and Linux: preview)</i>
+</p>
 
 ---
 
@@ -38,10 +36,10 @@ AI agents now work for hours, in several sessions, in several projects at once. 
 
 Everything runs locally. No account, no analytics, no telemetry.
 
-<div align="center">
-<img src="images/demo-telegram.gif" alt="Demo: three agent sessions on a Mac, one Telegram chat receiving their answers and sending replies into each session" width="760">
-<br><sub>▶️ 36-second animated demo with sample data — <a href="media/ai-over9-telegram-demo.mp4">watch in full HD</a>. Three sessions, two agents, one chat.</sub>
-</div>
+<p align="center">
+  <img src="images/demo-telegram.gif" alt="Demo: three agent sessions on a Mac, one Telegram chat receiving their answers and sending replies into each session" width="860">
+  <br><sub>▶️ 36-second animated demo with sample data — <a href="media/ai-over9-telegram-demo.mp4">watch in full HD</a>. Three sessions, two agents, one chat.</sub>
+</p>
 
 **📖 Guides:** [Connect Claude Code and Codex](docs/connect-agents.md) · [Telegram and chatting with agents](docs/telegram.md) · [Performance: CPU and memory](docs/benchmark.md)
 
@@ -88,14 +86,20 @@ AI Over9 follows Claude Code through its hooks — small entries in `~/.claude/s
 2. Open the **Claude Code** card › **Preview install** — you see exactly what will be added — › **Apply**.
 3. Your file is merged and backed up first; only AI Over9's own entries are added (and removed again with *Preview removal*).
 
-<img src="images/integrations.png" alt="Integrations: Claude Code and Codex found on this Mac, hooks not installed yet" width="640">
+<p align="center">
+  <img src="images/shot-integrations.jpg" alt="Integrations: Claude Code and Codex found on this Mac" width="860">
+  <br><sub>Integrations finds your agents and installs their hooks — merged and backed up.</sub>
+</p>
 
 > Moved Claude's folder (`CLAUDE_CONFIG_DIR`)? Pick it in the same card; hooks, limits and token counts follow it.
 > Full details: [Connect Claude Code and Codex](docs/connect-agents.md).
 
 The next time you start a prompt, the session appears in **Agents** as *Working*:
 
-<img src="images/agents.png" alt="Agents: a Claude Code and a Codex session working, each keeping the Mac awake" width="640">
+<p align="center">
+  <img src="images/shot-agents.jpg" alt="Agents: a Claude Code and a Codex session working" width="860">
+  <br><sub>Every session appears with its state the moment the agent starts working.</sub>
+</p>
 
 ### 3. Connect Codex
 
@@ -131,11 +135,12 @@ Writing to agents from a phone is powerful: an agent can run commands and change
    - scan the QR code with an authenticator app (Google Authenticator, 1Password, Authy…);
    - enter the 6-digit code it shows › **Turn on**.
 
-<img src="images/dangerous-actions.png" alt="Settings › Dangerous actions: answers to Telegram, writing into sessions, unlock duration, continue after a usage limit" width="470">
-&nbsp;
-<img src="images/authenticator.png" alt="Authenticator setup: QR code and key, then the 6-digit code" width="380">
+<p align="center">
+  <img src="images/shot-dangerous.jpg" alt="Settings › Dangerous actions and the authenticator setup" width="860">
+  <br><sub>Settings › Dangerous actions, and the one-time authenticator setup.</sub>
+</p>
 
-3. Choose how long one unlock lasts (1–24 hours). **Lock now** ends it at once; **New authenticator…** replaces the key.
+3. Choose how long one unlock lasts (1 hour by default, up to 24). **Lock now** ends it at once; **New authenticator…** replaces the key.
 
 ### 6. Try it
 
@@ -167,7 +172,7 @@ Full guide: [Telegram › Chatting with your agents](docs/telegram.md#chatting-w
 
 **Answers on your phone** keep their formatting: bold, lists, links, code blocks, and tables (as aligned columns). Very long answers are shortened, with a note.
 
-**Continue after a usage limit** *(optional rule, Settings › Dangerous actions)*: a session stopped by a usage limit gets your text (default `continue`) once the limit resets — at most 3 times per session. Good for long tasks that run overnight.
+**Continue after a usage limit** *(optional rule, Settings › Dangerous actions)*: a session stopped by a usage limit gets your text (default `continue`) once the limit resets — at most 3 times per session. The computer stays awake until then, so *Finish, then sleep* waits for the session instead of sleeping through the reset. Good for long tasks that run overnight.
 
 **Safety, by design:**
 
@@ -237,7 +242,10 @@ Every risky action asks for a confirmation button, and permissions are checked a
 - **Claude Remote Control:** one switch for every new Claude Code session, to continue it from claude.ai or the Claude app.
 - **Automations, schedules, power modes** (Advanced mode), **Home Assistant and HTTP devices**, **system and storage** views, **backup and restore**.
 
-<img src="images/lock-screen.png" alt="Lock screen card: Claude Code and Codex working" width="420">
+<p align="center">
+  <img src="images/lock-screen.png" alt="Lock screen card: Claude Code and Codex working" width="560">
+  <br><sub>While the Mac is locked: who is working, and who needs you.</sub>
+</p>
 
 ---
 
@@ -258,7 +266,10 @@ Every version is published for all three at once. Windows and Linux share one ap
 
 ¹ Not yet verified on real Windows / Linux machines: a message for an open session may wait until its current turn ends.
 
-<img src="images/windows.png" alt="AI Over9 for Windows" width="560">
+<p align="center">
+  <img src="images/shot-windows.jpg" alt="AI Over9 for Windows" width="860">
+  <br><sub>AI Over9 for Windows (preview).</sub>
+</p>
 
 ---
 
