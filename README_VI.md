@@ -1,25 +1,23 @@
-<div align="center">
+<p align="center">
+  <img src="images/hero-vi.jpg" alt="AI Over9: cửa sổ chính, bảng điều khiển trên thanh menu và một cuộc chat Telegram với nhiều phiên agent" width="100%">
+</p>
 
-# 🌙 AI Over9
+<h3 align="center">Điều khiển các agent lập trình AI từ bất cứ đâu. Máy tính làm việc — và được nghỉ.</h3>
 
-**Điều khiển các agent lập trình AI từ bất cứ đâu. Máy tính làm việc — và được nghỉ.**
+<p align="center">
+  AI Over9 theo dõi mọi phiên Claude Code và Codex trên máy, đưa câu trả lời của chúng lên điện thoại,<br>
+  cho bạn trả lời từng phiên ngay trên Telegram, giữ máy thức khi agent làm việc và cho máy ngủ khi tất cả đã xong.
+</p>
 
-AI Over9 theo dõi mọi phiên Claude Code và Codex trên máy, đưa câu trả lời của chúng lên điện thoại,
-cho bạn trả lời từng phiên ngay trên Telegram, giữ máy thức khi agent làm việc và cho máy ngủ khi tất cả đã xong.
+<p align="center">
+  <a href="https://github.com/denygame/ai-over9/releases/latest"><b>⬇️ Tải bản mới nhất</b></a>
+  &nbsp;·&nbsp; <a href="README.md">🇬🇧 English</a>
+  &nbsp;·&nbsp; <a href="docs/telegram.vi.md">📖 Tài liệu</a>
+</p>
 
-[**⬇️ Tải bản mới nhất**](https://github.com/denygame/ai-over9/releases/latest) · [🇬🇧 English](README.md)
-
-**macOS** 14 Sonoma trở lên · Apple silicon — ứng dụng thanh menu
-
-**Windows** 10 / 11 · x64 và ARM64 · **Linux** x64 — ứng dụng khay hệ thống (bản xem trước)
-
-<br>
-
-<img src="images/dashboard-vi.png" alt="Cửa sổ chính AI Over9: hai agent đang làm việc, máy được giữ thức, hạn mức gói" width="640">
-&nbsp;
-<img src="images/menu-vi.png" alt="Bảng điều khiển AI Over9 trên thanh menu" width="230">
-
-</div>
+<p align="center">
+  <b>macOS</b> 14 trở lên · Apple silicon &nbsp;|&nbsp; <b>Windows</b> 10 / 11 · x64, ARM64 &nbsp;|&nbsp; <b>Linux</b> x64 <i>(Windows và Linux: bản xem trước)</i>
+</p>
 
 ---
 
@@ -38,15 +36,11 @@ Agent AI giờ làm việc hàng giờ liền, nhiều phiên, nhiều dự án 
 
 Mọi thứ chạy trên máy bạn. Không tài khoản, không analytics, không telemetry.
 
-<div align="center">
-<img src="images/demo-telegram.gif" alt="Demo: ba phiên agent trên Mac, một cuộc chat Telegram nhận câu trả lời và gửi tin reply vào đúng từng phiên" width="760">
-<br><sub>▶️ Demo động 36 giây với dữ liệu mẫu (tiếng Anh) — <a href="media/ai-over9-telegram-demo.mp4">xem bản Full HD</a>. Ba phiên, hai agent, một cuộc chat.</sub>
-</div>
+<p align="center">
+  <img src="images/demo-telegram.gif" alt="Demo: ba phiên agent trên Mac, một cuộc chat Telegram nhận câu trả lời và gửi tin reply vào đúng từng phiên" width="860">
+  <br><sub>▶️ Demo động 36 giây với dữ liệu mẫu (tiếng Anh) — <a href="media/ai-over9-telegram-demo.mp4">xem bản Full HD</a>. Ba phiên, hai agent, một cuộc chat.</sub>
+</p>
 
-<div align="center">
-<img src="images/telegram-chat-vi.png" alt="Telegram: câu trả lời từ Claude Code và Codex, tin reply đi vào đúng từng phiên" width="400">
-<br><sub>Hình minh hoạ tiếng Việt với dữ liệu mẫu.</sub>
-</div>
 
 **📖 Tài liệu:** [Kết nối Claude Code và Codex](docs/connect-agents.vi.md) · [Telegram và chat với agent](docs/telegram.vi.md) · [Hiệu năng: CPU và bộ nhớ](docs/benchmark.vi.md)
 
@@ -93,14 +87,20 @@ AI Over9 theo dõi Claude Code qua hook — vài dòng nhỏ trong `~/.claude/se
 2. Mở thẻ **Claude Code** › **Xem trước khi cài** — bạn thấy chính xác những gì sẽ được thêm — › **Áp dụng**.
 3. File của bạn được gộp và sao lưu trước; chỉ các dòng của AI Over9 được thêm vào (và gỡ ra bằng *Xem trước khi gỡ*).
 
-<img src="images/integrations-vi.png" alt="Tích hợp: tìm thấy Claude Code và Codex trên máy, chưa cài hook" width="640">
+<p align="center">
+  <img src="images/shot-integrations-vi.jpg" alt="Tích hợp: tìm thấy Claude Code và Codex trên máy" width="860">
+  <br><sub>Tích hợp tự tìm các agent và cài hook — gộp và sao lưu trước.</sub>
+</p>
 
 > Đã chuyển thư mục của Claude (`CLAUDE_CONFIG_DIR`)? Chọn thư mục đó ngay trong thẻ; hook, hạn mức và số token sẽ theo đúng thư mục.
 > Chi tiết: [Kết nối Claude Code và Codex](docs/connect-agents.vi.md).
 
 Lần tới bạn gửi prompt, phiên sẽ hiện trong **Agent** với trạng thái *Đang làm*:
 
-<img src="images/agents-vi.png" alt="Agent: một phiên Claude Code và một phiên Codex đang làm, mỗi phiên giữ máy thức" width="640">
+<p align="center">
+  <img src="images/shot-agents-vi.jpg" alt="Agent: một phiên Claude Code và một phiên Codex đang làm" width="860">
+  <br><sub>Mỗi phiên hiện ra cùng trạng thái ngay khi agent bắt đầu làm việc.</sub>
+</p>
 
 ### 3. Kết nối Codex
 
@@ -136,11 +136,12 @@ Nhắn cho agent từ điện thoại là một quyền lớn: agent có thể c
    - quét mã QR bằng app Authenticator (Google Authenticator, 1Password, Authy…);
    - nhập mã 6 số app hiển thị › **Bật**.
 
-<img src="images/dangerous-actions-vi.png" alt="Cài đặt › Hành động nguy hiểm: gửi câu trả lời lên Telegram, nhắn vào phiên, thời gian mở khoá, tự chạy tiếp khi hạn mức phục hồi" width="470">
-&nbsp;
-<img src="images/authenticator-vi.png" alt="Thiết lập Authenticator: mã QR và khoá, sau đó nhập mã 6 số" width="380">
+<p align="center">
+  <img src="images/shot-dangerous-vi.jpg" alt="Cài đặt › Hành động nguy hiểm và thiết lập Authenticator" width="860">
+  <br><sub>Cài đặt › Hành động nguy hiểm, và bước thiết lập Authenticator một lần.</sub>
+</p>
 
-3. Chọn thời gian một lần mở khoá (1–24 giờ). **Khoá ngay** để khoá lập tức; **Đổi Authenticator…** để thay khoá mới.
+3. Chọn thời gian một lần mở khoá (mặc định 1 giờ, tối đa 24 giờ). **Khoá ngay** để khoá lập tức; **Đổi Authenticator…** để thay khoá mới.
 
 ### 6. Dùng thử
 
@@ -172,7 +173,7 @@ Hướng dẫn đầy đủ: [Telegram › Chat với agent](docs/telegram.vi.md
 
 **Câu trả lời trên điện thoại** giữ nguyên định dạng: chữ đậm, danh sách, link, khối code, và bảng (hiển thị thành các cột thẳng hàng). Câu trả lời quá dài được rút gọn, có ghi chú.
 
-**Tiếp tục khi hết hạn mức** *(quy tắc tuỳ chọn, Cài đặt › Hành động nguy hiểm)*: phiên bị dừng vì hết hạn mức sẽ nhận đoạn chữ của bạn (mặc định `continue`) khi hạn mức được làm mới — tối đa 3 lần mỗi phiên. Hợp cho việc dài chạy qua đêm.
+**Tiếp tục khi hết hạn mức** *(quy tắc tuỳ chọn, Cài đặt › Hành động nguy hiểm)*: phiên bị dừng vì hết hạn mức sẽ nhận đoạn chữ của bạn (mặc định `continue`) khi hạn mức được làm mới — tối đa 3 lần mỗi phiên. Máy được giữ thức tới lúc đó, nên *Xong việc rồi ngủ* sẽ chờ phiên thay vì ngủ quên qua giờ phục hồi. Hợp cho việc dài chạy qua đêm.
 
 **An toàn ngay từ thiết kế:**
 
@@ -242,7 +243,10 @@ Mọi thao tác rủi ro đều cần bấm nút xác nhận, và quyền đư�
 - **Claude Remote Control:** một công tắc cho mọi phiên Claude Code mới, để làm tiếp từ claude.ai hoặc app Claude.
 - **Tự động hoá, lịch, chế độ nguồn** (Chế độ nâng cao), **Home Assistant và thiết bị HTTP**, **hệ thống và dung lượng**, **sao lưu và khôi phục**.
 
-<img src="images/lock-screen.png" alt="Thẻ trên màn hình khoá: Claude Code và Codex đang làm việc" width="420">
+<p align="center">
+  <img src="images/lock-screen.png" alt="Thẻ trên màn hình khoá: Claude Code và Codex đang làm việc" width="560">
+  <br><sub>Khi Mac khoá: agent nào đang làm, agent nào cần bạn.</sub>
+</p>
 
 ---
 
@@ -263,7 +267,10 @@ Mỗi phiên bản được phát hành cho cả ba cùng lúc. Windows và Linu
 
 ¹ Chưa kiểm chứng trên máy Windows / Linux thật: tin gửi cho phiên đang mở có thể phải chờ tới khi xong lượt hiện tại.
 
-<img src="images/windows.png" alt="AI Over9 trên Windows" width="560">
+<p align="center">
+  <img src="images/shot-windows.jpg" alt="AI Over9 trên Windows" width="860">
+  <br><sub>AI Over9 trên Windows (bản xem trước).</sub>
+</p>
 
 ---
 
