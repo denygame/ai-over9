@@ -42,12 +42,12 @@ Không cần mở agent thông qua AI Over9: hook báo phiên từ mọi termina
 
 1. Mở **Tích hợp**. AI Over9 liệt kê các agent tìm thấy và phiên bản.
 
-   <img src="../images/integrations-vi.png" alt="Tích hợp: tìm thấy Claude Code và Codex, chưa cài hook" width="620">
+   <img src="../images/shot-integrations-vi.jpg" alt="Tích hợp: tìm thấy Claude Code và Codex, chưa cài hook" width="760">
 
 2. Mở thẻ **Claude Code** › **Xem trước khi cài** › xem danh sách thay đổi › **Áp dụng**.
 3. Gửi một prompt cho Claude Code. Chưa tới một giây sau, phiên hiện trong **Agent** với trạng thái *Đang làm*.
 
-   <img src="../images/agents-vi.png" alt="Agent: các phiên đang làm" width="620">
+   <img src="../images/shot-agents-vi.jpg" alt="Agent: các phiên đang làm" width="760">
 
 **Claude Code nào?** Tất cả — hook nằm trong cài đặt người dùng nên terminal (`claude`), extension VS Code và app Claude
 desktop đều báo về.
