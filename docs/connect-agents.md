@@ -42,12 +42,12 @@ Agents do not need to be started through AI Over9: hooks report sessions from an
 
 1. Open **Integrations**. AI Over9 lists the agents it found and their versions.
 
-   <img src="../images/integrations.png" alt="Integrations: Claude Code and Codex found, hooks not installed yet" width="620">
+   <img src="../images/shot-integrations.jpg" alt="Integrations: Claude Code and Codex found, hooks not installed yet" width="760">
 
 2. Open the **Claude Code** card › **Preview install** › check the list of changes › **Apply**.
 3. Give Claude Code a prompt. Within a second the session appears in **Agents** as *Working*.
 
-   <img src="../images/agents.png" alt="Agents: sessions working" width="620">
+   <img src="../images/shot-agents.jpg" alt="Agents: sessions working" width="760">
 
 **Which Claude Code?** All of them — the hooks are in your user settings, so the terminal (`claude`), the VS Code
 extension and the Claude desktop app all report.
