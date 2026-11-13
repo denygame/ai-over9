@@ -77,7 +77,7 @@ Everything runs locally. No account, no analytics — only an anonymous daily in
 2. **First launch only:** the app is signed by its author but not notarized by Apple. Right-click **AI Over9** › **Open** › **Open** (or *System Settings › Privacy & Security › Open Anyway*).
 3. The 🌙 icon appears in the menu bar and a short setup assistant opens.
 
-Or with Homebrew: `brew install --cask denygame/tap/ai-over9`.
+Or with Homebrew: `brew install --cask denygame/tap/ai-over9` (if Homebrew asks you to trust the tap first: `brew trust denygame/tap`, then run the install again).
 
 Windows and Linux: see [Installation details](#installation-details).
 
