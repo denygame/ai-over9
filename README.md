@@ -15,6 +15,12 @@ AI Over9 keeps your computer awake while the agents work, lets it rest when they
 
 **Linux** x64 · AppImage or .deb — tray app (preview)
 
+<br>
+
+<img src="images/dashboard.png" alt="AI Over9 main window: two agents working, the Mac kept awake" width="640">
+&nbsp;
+<img src="images/menu.png" alt="AI Over9 menu bar panel" width="240">
+
 </div>
 
 ---
@@ -191,6 +197,8 @@ Pair your own Telegram bot (one bot per Mac). Roles control who can do what: **v
 
 ### Lock screen status
 
+<img src="images/lock-screen.png" alt="Lock screen card: Claude Code and Codex working" width="460">
+
 - While the Mac is locked and an agent works, a card below the clock shows the agents, how long they have been working, and any approval they need.
 - When everything is done, it shows the sleep countdown.
 - It is display only and can be turned off.
@@ -288,6 +296,8 @@ See [Linux](#linux) for details.
 ---
 
 ## Windows
+
+<img src="images/windows.png" alt="AI Over9 for Windows: overview with two agents working" width="640">
 
 The Windows app is a preview: it covers the core of AI Over9 and lives in the notification area (next to the clock). Closing its window keeps it running there.
 
