@@ -43,6 +43,9 @@ each redraw. It now computes it once per new record or new day.
 | 95th percentile | 49.5% | 32.5% |
 | Physical footprint | 76 MB | 72 MB |
 
+**0.9.3** reads only the temperature sensors that give a value: in the background the mean CPU went from 1.4% to
+**1.1%** (median 0%, 95th percentile 5.1%). With the window open it stayed within the run-to-run variation (5–6%).
+
 ## What this means
 
 - **Most of the time AI Over9 is in the background**, and there it costs about what a clock in the menu bar costs:
