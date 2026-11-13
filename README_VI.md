@@ -78,7 +78,7 @@ Mọi thứ chạy trên máy bạn. Không tài khoản, không analytics — c
 2. **Chỉ lần mở đầu tiên:** app được tác giả ký nhưng chưa được Apple notarize. Nhấp phải **AI Over9** › **Open** › **Open** (hoặc *System Settings › Privacy & Security › Open Anyway*).
 3. Biểu tượng 🌙 xuất hiện trên thanh menu và trợ lý thiết lập mở ra.
 
-Hoặc dùng Homebrew: `brew install --cask denygame/tap/ai-over9`.
+Hoặc dùng Homebrew: `brew install --cask denygame/tap/ai-over9` (nếu Homebrew yêu cầu tin cậy tap trước: chạy `brew trust denygame/tap` rồi cài lại).
 
 Windows và Linux: xem [Cài đặt chi tiết](#cài-đặt-chi-tiết).
 
