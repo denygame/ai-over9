@@ -384,6 +384,6 @@ Bật **Số chính xác** (trang Sử dụng, hoặc link xanh trên Tổng qua
 
 ## Ủng hộ
 
-AI Over9 miễn phí, không quảng cáo. Nếu app giúp những đêm làm việc của bạn nhẹ nhàng hơn, bạn có thể mời tác giả một ly cà phê trong mục **Giới thiệu** của app — hoàn toàn tuỳ ý.
+AI Over9 miễn phí, không quảng cáo. Nếu app giúp những đêm làm việc của bạn nhẹ nhàng hơn, bạn có thể mời tác giả một ly cà phê trong mục **Giới thiệu** của app (ở nước ngoài thì qua [PayPal](https://paypal.me/HuyNT2202)) — hoàn toàn tuỳ ý.
 
 Câu hỏi, ý tưởng hay lỗi: mở một [issue](https://github.com/denygame/ai-over9/issues).
