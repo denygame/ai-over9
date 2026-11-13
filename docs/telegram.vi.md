@@ -99,11 +99,9 @@ Thao tác rủi ro cần bấm nút xác nhận; quyền được kiểm tra l�
 1. **Gửi câu trả lời cuối của agent cho Chủ sở hữu qua Telegram** — xác nhận.
 2. **Cho Chủ sở hữu nhắn vào phiên agent từ Telegram** — quét mã QR bằng app Authenticator (Google Authenticator,
    1Password, Authy…), nhập mã 6 số, **Bật**.
-3. **Mở khoá có hiệu lực** 1–24 giờ. **Khoá ngay** để khoá; **Đổi Authenticator…** để thay khoá mới.
+3. **Mở khoá có hiệu lực** 1 giờ theo mặc định (tối đa 24 giờ). **Khoá ngay** để khoá; **Đổi Authenticator…** để thay khoá mới.
 
-<img src="../images/dangerous-actions-vi.png" alt="Cài đặt › Hành động nguy hiểm" width="460">
-&nbsp;
-<img src="../images/authenticator-vi.png" alt="Thiết lập Authenticator" width="360">
+<img src="../images/shot-dangerous-vi.jpg" alt="Settings › Dangerous actions" width="760">
 
 ### Câu trả lời
 
@@ -151,8 +149,9 @@ trong im lặng.
 ## Tiếp tục khi hết hạn mức
 
 Quy tắc tuỳ chọn trong **Cài đặt › Hành động nguy hiểm**: phiên bị dừng vì hết hạn mức sẽ nhận đoạn chữ của bạn (mặc
-định `continue`) khi hạn mức được làm mới — tối đa 3 lần mỗi phiên. Phiên Claude Code đang mở vốn tự chạy tiếp; quy tắc
-này dành cho Codex và các phiên đã đóng.
+định `continue`) khi hạn mức được làm mới — tối đa 3 lần mỗi phiên: phiên đang mở nhận như một tin bình thường, phiên đã
+đóng chạy tiếp ở nền. Tới giờ phục hồi máy được giữ thức, nên *Xong việc rồi ngủ* sẽ chờ phiên chạy tiếp và làm xong thay
+vì ngủ quên qua giờ phục hồi.
 
 ---
 
