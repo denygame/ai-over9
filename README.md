@@ -13,6 +13,8 @@ AI Over9 keeps your computer awake while the agents work, lets it rest when they
 
 **Windows** 10 / 11 · x64 and ARM64 — notification-area app (preview)
 
+**Linux** x64 · AppImage or .deb — tray app (preview)
+
 </div>
 
 ---
@@ -20,7 +22,7 @@ AI Over9 keeps your computer awake while the agents work, lets it rest when they
 ## Contents
 
 - [Why AI Over9](#why-ai-over9)
-- [macOS and Windows](#macos-and-windows)
+- [macOS, Windows and Linux](#macos-windows-and-linux)
 - [Quick actions](#quick-actions)
 - [Features](#features)
   - [AI agent monitoring](#ai-agent-monitoring)
@@ -66,11 +68,11 @@ Everything runs locally on your computer. There is no account, no analytics and 
 
 ---
 
-## macOS and Windows
+## macOS, Windows and Linux
 
-Both apps share the same idea, the same Telegram commands and the same release: every version is published for both platforms at once.
+All three share the same idea, the same Telegram commands and the same release: every version is published for every platform at once. Windows and Linux are the same app.
 
-| | macOS | Windows (preview, x64 and ARM64) |
+| | macOS | Windows (preview, x64 and ARM64) / Linux (preview, x64) |
 |---|---|---|
 | Claude Code and Codex hooks | ✅ | ✅ |
 | Other agents detected from the running process | ✅ | — |
@@ -84,7 +86,7 @@ Both apps share the same idea, the same Telegram commands and the same release: 
 | Automations, schedules, smart devices | ✅ | — |
 | Signed automatic updates | ✅ | ✅ |
 
-The rest of this page describes the macOS app; see [Windows](#windows) for what is specific to Windows.
+The rest of this page describes the macOS app; see [Windows](#windows) and [Linux](#linux) for what is specific to them.
 
 ---
 
@@ -264,6 +266,13 @@ shasum -a 256 -c AIOver9-<version>-macos-arm64.dmg.sha256
 
 See [Windows](#windows) for setup and details.
 
+### Linux
+
+- **AppImage** (any distribution, updates itself): download `AIOver9-<version>-linux-x64.AppImage`, make it executable (`chmod +x`), keep it in one place (e.g. `~/Applications`) and run it.
+- **.deb** (Ubuntu, Debian…): `sudo apt install ./AIOver9-<version>-linux-amd64.deb`. Updates: install the new .deb.
+
+See [Linux](#linux) for details.
+
 ---
 
 ## First-time setup
@@ -291,6 +300,19 @@ The Windows app is a preview: it covers the core of AI Over9 and lives in the no
 - **Data:** `%APPDATA%\AIOver9`. To uninstall, use *Apps › Installed apps*, then delete that folder if you want.
 - **Updates:** checked every 4 hours; nothing is installed until you click **Download and install** in About. Updates are signed and verified before installing.
 - **Not on Windows:** fan control, the lock screen card, the menu bar apps list, automations and smart devices.
+
+---
+
+## Linux
+
+The Linux app is the same app as on Windows (preview), with the same features and limits. Linux specifics:
+
+- **Turning off** uses systemd-logind: shut down (default), hibernate (if your system supports it) or sleep — never forced.
+- **Idle detection:** the PC is only turned off when nobody uses it — measured on GNOME (X11 and Wayland) and KDE. On other desktops the countdown with its cancel button is the only guard, and the app says so.
+- **Tray icon:** needs AppIndicator support (GNOME: the *AppIndicator* extension, preinstalled on Ubuntu).
+- **Secrets:** the bot token is stored in the system keyring (GNOME Keyring / KWallet).
+- **Data:** `~/.local/share/AIOver9`.
+- **Hooks with the AppImage** call the AppImage file: keep it in one place; after moving it, use *Agents › Repair*.
 
 ---
 
@@ -361,6 +383,9 @@ See [Installation](#installation), step 3. This is needed once.
 **The AI Over9 icon is not in the menu bar.**
 The menu bar is probably full (or behind the notch). Press ⌥⌘9 (or your own shortcut) to open the panel, or open AI Over9 from Spotlight to show its window.
 
+**Linux: no tray icon.**
+On GNOME, install or enable the *AppIndicator and KStatusNotifierItem Support* extension.
+
 **Windows: SmartScreen blocks the installer.**
 The installer is not code-signed yet. Choose **More info › Run anyway**.
 
@@ -387,7 +412,7 @@ The installer is not code-signed yet. Choose **More info › Run anyway**.
 - AI Over9 is provided "as is", without warranty of any kind. You use automations that can sleep or shut down your computer, or control fans or devices, at your own risk.
 - **Third-party software:**
   - [Sparkle](https://sparkle-project.org) (MIT) for updates on macOS;
-  - Windows: [Tauri](https://tauri.app) (MIT / Apache-2.0) and open-source Rust crates (MIT / Apache-2.0); the window uses Microsoft Edge WebView2;
+  - Windows and Linux: [Tauri](https://tauri.app) (MIT / Apache-2.0) and open-source Rust crates (MIT / Apache-2.0); the window uses Microsoft Edge WebView2 (Windows) or WebKitGTK (Linux);
   - native fan control was written for AI Over9, informed by the MIT-licensed projects [AutoFansMac](https://github.com/garyhooi/AutoFansMac), [MacFanControl](https://github.com/raminsharifi/MacFanControl) and [macsfan](https://github.com/matejrondzik/macsfan).
 
 ---
