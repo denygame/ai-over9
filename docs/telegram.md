@@ -100,11 +100,9 @@ shell command.
 1. **Send the agents' final answers to the Owner on Telegram** — confirm.
 2. **Let the Owner write into agent sessions from Telegram** — scan the QR code with an authenticator app (Google
    Authenticator, 1Password, Authy…), enter the 6-digit code, **Turn on**.
-3. **Unlock lasts** 1–24 hours. **Lock now** ends it; **New authenticator…** replaces the key.
+3. **Unlock lasts** 1 hour by default (up to 24). **Lock now** ends it; **New authenticator…** replaces the key.
 
-<img src="../images/dangerous-actions.png" alt="Settings › Dangerous actions" width="460">
-&nbsp;
-<img src="../images/authenticator.png" alt="Authenticator setup" width="360">
+<img src="../images/shot-dangerous.jpg" alt="Settings › Dangerous actions" width="760">
 
 ### Answers
 
@@ -151,8 +149,9 @@ dropped silently.
 ## Continue after a usage limit
 
 Optional rule in **Settings › Dangerous actions**: a session stopped by a usage limit gets your text (default
-`continue`) once the limit resets — at most 3 times per session. Open Claude Code sessions already continue by
-themselves; the rule covers Codex and closed sessions.
+`continue`) once the limit resets — at most 3 times per session: open sessions get it like any message, closed ones
+continue in the background. Until the reset the computer stays awake, so *Finish, then sleep* waits for the session to
+continue and finish instead of sleeping through the reset.
 
 ---
 
