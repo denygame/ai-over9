@@ -83,6 +83,7 @@ be hidden (*Include project folder names in messages*).
 | `/schedule`, `/automation`, `/run <name>` | Viewer · Operator | Schedules, allowed automations |
 | `/devices`, `/device <name> on/off` | Viewer · Operator | Smart devices |
 | `/unlock <code>`, `/lock` | Owner | Open / close chatting with agents |
+| `/new <folder> [claude/codex] <task>` | Owner | Start a new agent session in a folder inside the allowed parent |
 | `/users`, `/revoke` | Owner | People |
 | `/lang en` · `/lang vi`, `/help` | Viewer | Language, help |
 
@@ -129,7 +130,8 @@ across restarts of the app. `/lock` closes it.
 ### Where your message goes
 
 - **Reply to an answer** → that answer's session. The reliable way with several sessions.
-- **A plain message** → the session of the latest answer you received.
+- **A plain message** → the session you picked in `/sessions` (💬 #n or `/sessions n`), else the session of the
+  latest answer you received.
 - A reply to an answer the bot can no longer place is refused with a note — never sent to another session.
 
 ### What happens then
@@ -144,7 +146,46 @@ across restarts of the app. `/lock` closes it.
 If something cannot run (for example the agent's command-line tool is missing), the bot says why — a message is never
 dropped silently.
 
+### Photos and files
+
+**Settings › Dangerous actions › Let the Owner send photos and files to agent sessions** (off by default, needs agent
+chat). Then send a photo, a screenshot or a document — with your request as its caption, or none — exactly like a
+message: as a reply to an answer, or to the session you picked.
+
+- The file is saved in the session's project under `.aio-files/` (added to `.git/info/exclude`, so it never shows up
+  in git; files older than 7 days are removed). Without a known project folder it goes to AI Over9's own folder.
+- The agent receives your caption followed by the path of each file, and opens it with its own tools — Claude Code and
+  Codex both read images.
+- An album (several photos at once) arrives as one message. Up to 10 files, 20 MB each (Telegram's limit for bots).
+- Same unlock as writing. AI Over9 never opens or runs the files; remember a file can carry instructions just like a
+  message.
+
 ---
+
+## Approving permission prompts
+
+**Settings › Dangerous actions › Approve agents' permission prompts from Telegram** (needs agent chat).
+
+- While nobody uses the computer (1–10 minutes, your choice), an agent's permission prompt — run a command, edit a
+  file… — arrives with the agent, project, session title and the exact command, and **✅ Allow / ❌ Deny** buttons.
+- Owner only, while unlocked. Pressing a button while locked asks for `/unlock` and offers the buttons again.
+- No answer within about 14 minutes → nothing is approved; the agent asks on the computer as usual.
+- At the computer, the agent's own prompt shows at once — Telegram is not asked.
+- Works for Claude Code and Codex. AI Over9 sets a longer wait on its own permission hook entry; Codex then asks you
+  to trust the changed hook once.
+
+## Session buttons and new sessions
+
+- `/sessions` numbers the sessions and adds buttons for the Owner on every Claude Code and Codex session, finished ones
+  included (they continue in the background): **💬 Write to #n** sends your next messages, photos and files to that
+  session (`/sessions n` does the same), **📄 Changes #n** shows the project's uncommitted changes
+  (`git diff --stat`, read-only), **⏹ #n** stops the current turn of a Codex session open in a window (unlock needed).
+  The chosen session is marked 👈 in the list.
+- `/new <folder> [claude|codex] <task>` starts a new session in a folder **inside the parent folder** you chose in
+  **Settings › Dangerous actions › Start new agent sessions from Telegram** (the switch asks for it when you turn it
+  on). `/new web-shop add tests` runs in `<parent>/web-shop`, `apps/web-shop` works too, and a folder that does not
+  exist yet is created. Never outside the parent: absolute paths, `~`, `..`, hidden folders and links leading out are
+  refused. Owner only, while unlocked. The answer comes back here and the session appears in `/sessions`.
 
 ## Continue after a usage limit
 
