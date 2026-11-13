@@ -2,359 +2,300 @@
 
 # 🌙 AI Over9
 
-**Your AI works. Your machine rests.**
+**Run your AI coding agents from anywhere. Your computer works — and rests.**
 
-For people who let AI coding agents work for them — Claude Code, Codex, Cursor, Gemini and more.
-AI Over9 keeps your computer awake while the agents work, lets it rest when they are done, and tells you everything on Telegram.
+AI Over9 watches every Claude Code and Codex session on your computer, brings their answers to your phone,
+lets you reply to any of them from Telegram, keeps the computer awake while they work and puts it to sleep when they are done.
 
-[**⬇️ Download the latest release**](https://github.com/denygame/ai-over9/releases/latest)
+[**⬇️ Download the latest release**](https://github.com/denygame/ai-over9/releases/latest) · [🇻🇳 Vietnamese](README_VI.md)
 
 **macOS** 14 Sonoma or later · Apple silicon — native menu bar app
 
-**Windows** 10 / 11 · x64 and ARM64 — notification-area app (preview)
-
-**Linux** x64 · AppImage or .deb — tray app (preview)
+**Windows** 10 / 11 · x64 and ARM64 · **Linux** x64 — tray app (preview)
 
 <br>
 
-<img src="images/dashboard.png" alt="AI Over9 main window: two agents working, the Mac kept awake" width="640">
+<img src="images/dashboard.png" alt="AI Over9 main window: two agents working, the Mac kept awake, plan usage" width="640">
 &nbsp;
-<img src="images/menu.png" alt="AI Over9 menu bar panel" width="240">
+<img src="images/menu.png" alt="AI Over9 menu bar panel" width="230">
 
 </div>
 
 ---
 
+## What it does
+
+AI agents now work for hours, in several sessions, in several projects at once. AI Over9 is the control room for that:
+
+| | |
+|---|---|
+| 👀 **See every agent and session** | Claude Code (terminal, VS Code, desktop app) and Codex (CLI, VS Code, ChatGPT app) report through their official hooks: working, waiting for your approval, finished, limited, interrupted. Ten more CLI agents are detected from their process. |
+| 💬 **Talk to them from your phone** | Each agent's final answer arrives on Telegram — formatted, with the project and the session's title. **Reply to it and that session continues.** Many agents, many sessions, one chat. |
+| ☕ **Keep the computer awake — only while needed** | Awake while an agent works, free to sleep when nothing does. The display can still turn off. |
+| 🌙 **Finish, then sleep** | When every agent is done and you are away, a short cancellable countdown and the computer sleeps. |
+| 📊 **Know your limits** | 5-hour and weekly plan usage with the real numbers from your Claude and ChatGPT accounts; alerts before you hit them; an optional rule continues stopped sessions when the limit resets. |
+| 📱 **Everything from Telegram** | Status, sessions, usage, keep awake, sleep, fans, automations — with roles and confirmation buttons. Never a shell command. |
+
+Everything runs locally. No account, no analytics, no telemetry.
+
+<div align="center">
+<img src="images/demo-telegram.gif" alt="Demo: three agent sessions on a Mac, one Telegram chat receiving their answers and sending replies into each session" width="760">
+<br><sub>▶️ 36-second animated demo with sample data — <a href="media/ai-over9-telegram-demo.mp4">watch in full HD</a>. Three sessions, two agents, one chat.</sub>
+</div>
+
+**📖 Guides:** [Connect Claude Code and Codex](docs/connect-agents.md) · [Telegram and chatting with agents](docs/telegram.md) · [Performance: CPU and memory](docs/benchmark.md)
+
+---
+
 ## Contents
 
-- [Why AI Over9](#why-ai-over9)
-- [macOS, Windows and Linux](#macos-windows-and-linux)
-- [Quick actions](#quick-actions)
+- [Quick start (10 minutes)](#quick-start-10-minutes)
+  - [1. Install](#1-install)
+  - [2. Connect Claude Code](#2-connect-claude-code)
+  - [3. Connect Codex](#3-connect-codex)
+  - [4. Connect Telegram](#4-connect-telegram)
+  - [5. Turn on chat with your agents](#5-turn-on-chat-with-your-agents)
+  - [6. Try it](#6-try-it)
+- [Managing many agents and sessions from Telegram](#managing-many-agents-and-sessions-from-telegram)
+- [Telegram commands](#telegram-commands)
 - [Features](#features)
-  - [AI agent monitoring](#ai-agent-monitoring)
-  - [Finish, then sleep](#finish-then-sleep)
-  - [Keep awake](#keep-awake)
-  - [Fans and cooling](#fans-and-cooling)
-  - [Usage limits](#usage-limits)
-  - [Telegram remote](#telegram-remote)
-  - [Notifications](#notifications)
-  - [Lock screen status](#lock-screen-status)
-  - [Menu bar apps and shortcut](#menu-bar-apps-and-shortcut)
-  - [Claude Remote Control](#claude-remote-control)
-  - [Automations, schedules and power modes](#automations-schedules-and-power-modes)
-  - [Smart devices](#smart-devices)
-  - [System and storage](#system-and-storage)
-- [Installation](#installation)
-- [First-time setup](#first-time-setup)
-- [Windows](#windows)
+- [macOS, Windows and Linux](#macos-windows-and-linux)
+- [Installation details](#installation-details)
 - [Updates](#updates)
 - [Privacy and security](#privacy-and-security)
 - [Permissions](#permissions)
 - [FAQ and troubleshooting](#faq-and-troubleshooting)
 - [Uninstall](#uninstall)
-- [License](#license)
-- [Support](#support)
+- [License](#license) · [Support](#support)
 
 ---
 
-## Why AI Over9
+## Quick start (10 minutes)
 
-AI coding agents can work for hours. Your Mac should not fall asleep halfway through a task, and it should not stay awake all night once the work is done.
+### 1. Install
 
-AI Over9 sits in the menu bar and answers the questions you would otherwise keep checking:
+1. Download `AIOver9-<version>-macos-arm64.dmg` from the [latest release](https://github.com/denygame/ai-over9/releases/latest), open it and drag **AI Over9** to **Applications**.
+2. **First launch only:** the app is signed by its author but not notarized by Apple. Right-click **AI Over9** › **Open** › **Open** (or *System Settings › Privacy & Security › Open Anyway*).
+3. The 🌙 icon appears in the menu bar and a short setup assistant opens.
 
-- **Is the agent still working?** Every Claude Code and Codex session is tracked from its own hooks: started, working, waiting for your approval, finished, interrupted.
-- **Will the Mac stay awake?** It is kept awake while there is work, and released when there is none. The display can still turn off.
-- **Will it sleep when the work is done?** Turn on *Finish, then sleep* and it does, after a short countdown you can cancel.
-- **Is it getting too hot?** Read the fans, cool the Mac with one click, or let it cool itself when the CPU gets hot.
-- **How much of my plan is left?** See your 5-hour and weekly limits, with the real numbers from your account.
-- **What happened while I was away?** Telegram tells you, and lets you check or act from your phone.
+Windows and Linux: see [Installation details](#installation-details).
 
-Everything runs locally on your computer. There is no account, no analytics and no telemetry.
+### 2. Connect Claude Code
+
+AI Over9 follows Claude Code through its hooks — small entries in `~/.claude/settings.json` that call AI Over9 when something happens. They work for every Claude Code you use: terminal, VS Code and the Claude desktop app.
+
+1. Open **Integrations**. AI Over9 has already found your agents and their versions.
+2. Open the **Claude Code** card › **Preview install** — you see exactly what will be added — › **Apply**.
+3. Your file is merged and backed up first; only AI Over9's own entries are added (and removed again with *Preview removal*).
+
+<img src="images/integrations.png" alt="Integrations: Claude Code and Codex found on this Mac, hooks not installed yet" width="640">
+
+> Moved Claude's folder (`CLAUDE_CONFIG_DIR`)? Pick it in the same card; hooks, limits and token counts follow it.
+> Full details: [Connect Claude Code and Codex](docs/connect-agents.md).
+
+The next time you start a prompt, the session appears in **Agents** as *Working*:
+
+<img src="images/agents.png" alt="Agents: a Claude Code and a Codex session working, each keeping the Mac awake" width="640">
+
+### 3. Connect Codex
+
+1. In **Integrations**, open the **Codex** card › **Codex hooks (recommended)** › **Preview install** › **Apply**. This writes `~/.codex/hooks.json`.
+2. **Trust the hooks in Codex — once.** Codex runs a hook only after you approved it; until then it silently skips it and AI Over9 sees nothing.
+   - The Codex card shows **"Codex has not trusted AI Over9's hooks"** with a **Review in Terminal…** button: it opens Codex, which shows **Hooks need review**.
+   - Choose **Review hooks**, check that they are AI Over9's (`aio-hook --agent codex`), then **Trust all and continue**. Quit Codex (Ctrl+C twice).
+   - No button? Run Codex in a terminal and type `/hooks`.
+3. **Restart Codex where you use it** so open windows load the trusted hooks: VS Code › *Developer: Reload Window*, or quit and reopen the ChatGPT app.
+
+> Codex asks again whenever a hook changes. If Codex sessions stop appearing, look at the Codex card first.
+> Full details and troubleshooting: [Connect Claude Code and Codex](docs/connect-agents.md#codex).
+
+### 4. Connect Telegram
+
+You use your own bot — one bot per computer. It takes two minutes:
+
+1. In Telegram, open [@BotFather](https://t.me/BotFather), send `/newbot` and pick a name. BotFather replies with a **token**.
+2. In AI Over9: **Integrations › Telegram**, paste the token and click **Save to Keychain**. The token is stored only in the macOS Keychain — never paste it into a chat.
+3. Click **Create pairing code (you become Owner)**, open a private chat with your bot and send what the app shows (e.g. `/pair 7AB6NS2B`). The code works once and expires in a few minutes.
+4. Send `/status` to the bot. You now get messages when an agent starts, finishes, needs approval or hits a limit.
+
+Roles, notifications and every command: [Telegram guide](docs/telegram.md).
+
+Other people can be added with **Create code for another person**, as **Viewer** (read only) or **Operator** (everyday actions). Only the **Owner** can change power, fans, users — and talk to agents.
+
+### 5. Turn on chat with your agents
+
+Writing to agents from a phone is powerful: an agent can run commands and change files. So it is off by default, Owner only, and protected by a second factor.
+
+1. **Settings › Dangerous actions › Send the agents' final answers to the Owner on Telegram** — confirm.
+2. **Let the Owner write into agent sessions from Telegram** — a setup sheet opens:
+   - scan the QR code with an authenticator app (Google Authenticator, 1Password, Authy…);
+   - enter the 6-digit code it shows › **Turn on**.
+
+<img src="images/dangerous-actions.png" alt="Settings › Dangerous actions: answers to Telegram, writing into sessions, unlock duration, continue after a usage limit" width="470">
+&nbsp;
+<img src="images/authenticator.png" alt="Authenticator setup: QR code and key, then the 6-digit code" width="380">
+
+3. Choose how long one unlock lasts (1–24 hours). **Lock now** ends it at once; **New authenticator…** replaces the key.
+
+### 6. Try it
+
+1. Give an agent a task in Claude Code or Codex.
+2. When it finishes, its answer arrives on Telegram, with the project and the session title.
+3. **Reply** to that message. The first time, the bot asks for `/unlock` and the current code from your authenticator app: send `/unlock 123456`.
+4. Reply again — the bot confirms where your message went, and the agent's next answer arrives a moment later.
 
 ---
 
-## macOS, Windows and Linux
+## Managing many agents and sessions from Telegram
 
-All three share the same idea, the same Telegram commands and the same release: every version is published for every platform at once. Windows and Linux are the same app.
+Full guide: [Telegram › Chatting with your agents](docs/telegram.md#chatting-with-your-agents).
 
-| | macOS | Windows (preview, x64 and ARM64) / Linux (preview, x64) |
-|---|---|---|
-| Claude Code and Codex hooks | ✅ | ✅ |
-| Other agents detected from the running process | ✅ | — |
-| Keep awake while agents work | ✅ | ✅ |
-| Finish, then sleep | ✅ sleep | ✅ shut down, hibernate or sleep |
-| Usage limits and token totals | ✅ | ✅ |
-| Telegram remote and notifications | ✅ full command set | ✅ core commands |
-| Fans and cooling | ✅ | — |
-| Lock screen status | ✅ | — |
-| Menu bar apps list and global shortcut | ✅ | — |
-| Automations, schedules, smart devices | ✅ | — |
-| Signed automatic updates | ✅ | ✅ |
+**Where does my message go?**
 
-The rest of this page describes the macOS app; see [Windows](#windows) and [Linux](#linux) for what is specific to them.
+- **Reply to an answer** → into the session that wrote it. This is the reliable way with several sessions: every answer names its agent, project and session title (🧵).
+- **A plain message** (no reply) → into the session of the latest answer you received.
+- An answer the bot can no longer place (very old) is refused with a note — your message never lands in another session by mistake.
+
+**What happens then** — the bot always tells you:
+
+| Session | Your message |
+|---|---|
+| **Claude Code**, open (terminal, VS Code, desktop app) | 📨 Delivered **at once**, even mid-turn. The agent starts its answer with `📱 Telegram: …` so you also see your message in the session window. |
+| **Codex**, open in VS Code or the ChatGPT app, idle | 📨 Delivered **at once** through that window — it shows there like a typed message. |
+| **Codex**, busy with a turn | ⏳ Handed over the moment the current turn ends. |
+| **Closed session** (window closed, terminal ended) | 🔄 **Continued in the background** (`claude --resume` / `codex exec resume`); the answer comes back to Telegram, and the session shows the turn when you reopen it. |
+
+**Answers on your phone** keep their formatting: bold, lists, links, code blocks, and tables (as aligned columns). Very long answers are shortened, with a note.
+
+**Continue after a usage limit** *(optional rule, Settings › Dangerous actions)*: a session stopped by a usage limit gets your text (default `continue`) once the limit resets — at most 3 times per session. Good for long tasks that run overnight.
+
+**Safety, by design:**
+
+- Owner only. Viewers and Operators never receive answers and cannot write to agents.
+- Writing needs an **unlock with a code from your authenticator app** — not from Telegram. A stolen Telegram account alone cannot drive your agents. Wrong codes are rate-limited, and the code is never kept in the message history.
+- The agents' own permission rules always apply. Nothing is bypassed, and the bot never runs a command itself.
+- `/lock` (or **Lock now** in the app) closes it at once.
 
 ---
 
-## Quick actions
+## Telegram commands
 
-The three things you open the app for, one click each — on the Overview and in the menu bar:
+| Command | What it does |
+|---|---|
+| `/status`, `/menu` | Overview with quick buttons |
+| `/why` | Why the computer is awake, what still blocks sleep |
+| `/agents`, `/sessions` | Agents and their sessions |
+| `/usage`, `/reset` | Plan limits, reset times, token usage |
+| `/awake`, `/awake 30`, `/awake off` | Keep-awake status, keep awake N more minutes, stop |
+| `/sleep`, `/cancel` | Request sleep (safety checks, countdown), cancel it |
+| `/unlock <code>`, `/lock` | Open / close writing to agents (Owner, authenticator code) |
+| `/fans`, `/fans auto`, `/fans cool`, `/fans set <1/2/all> <rpm>` | Fan status, Automatic, cool now, constant speed (Owner, if allowed) |
+| `/mission`, `/missions`, `/report` | Tonight's work and its report |
+| `/battery`, `/power`, `/profile <name>` | Battery, power modes |
+| `/schedule`, `/automation`, `/run <name>` | Schedules and allowed automations |
+| `/devices`, `/device <name> on/off` | Smart devices |
+| `/users`, `/lang en` · `/lang vi`, `/help` | Paired people, message language, help |
 
-| | Action | What it does |
-|---|---|---|
-| 🌙 | **Finish, then sleep** | When every agent has finished and you are not using the Mac, AI Over9 shows a 2-minute countdown (cancel anytime) and puts the Mac to sleep. The tile tells you exactly what it is waiting for. |
-| ❄️ | **Cool the Mac** | Runs the fans faster until the CPU is cool again, then returns them to Automatic. Optional: cool automatically when the CPU reaches 85 °C. |
-| ☕ | **Keep awake** | For one hour, or until you stop it. |
+Every risky action asks for a confirmation button, and permissions are checked again when you press it. Commands sent while the computer slept are not replayed one by one — you get a short summary instead.
 
 ---
 
 ## Features
 
-### AI agent monitoring
+### Agent monitoring
 
-- **Claude Code** (terminal and VS Code) and **Codex** are followed through their official hooks. AI Over9 installs its own small hook entries next to yours. Your configuration is merged and backed up, never replaced, and removing the hooks deletes only AI Over9's entries.
-- **Other agents are detected automatically** from the running process, without any setup: Cursor Agent, Gemini CLI, Qwen Code, Kimi CLI, Aider, OpenCode, Goose, Amp, Crush and Factory Droid. Monitoring is more limited for these (start, working, exit), and is labelled as such.
-- **Session states:** working, waiting for approval, idle, finished, interrupted, and unknown when a session goes silent. Short background sessions that never do any work are ignored.
-- **Background tasks:** when an agent keeps working in the background (background commands or agents), the session counts as working until the last task finishes — one "finished" message, and the Mac stays awake meanwhile.
-- **Custom config folders:** if you moved Claude Code's or Codex's folder (`CLAUDE_CONFIG_DIR`, `CODEX_HOME`), choose it in Integrations; hooks, limits and token totals follow it.
-- **Missions:** a night's work is grouped automatically when you turn on *Finish, then sleep*, and a report is shown when it is done.
-- **"Why is my Mac awake?"** explains in plain words: which agents keep it awake, which other apps hold it awake, and what still blocks sleep.
+- **Claude Code** and **Codex** through their official hooks, with states: working, waiting for approval, idle, finished, limited, interrupted. Background tasks keep a session *working* until the last one ends — one "finished" message, not five.
+- **Other agents detected automatically** from their process: Cursor Agent, Gemini CLI, Qwen Code, Kimi CLI, Aider, OpenCode, Goose, Amp, Crush, Factory Droid (start, working, exit).
+- **"Why is my Mac awake?"** in plain words: which agents, which other apps, what still blocks sleep.
+- **Missions:** a night's work is grouped when you turn on *Finish, then sleep*, with a report at the end.
 
-### Finish, then sleep
+### Quick actions
 
-- Sleeps only when it is safe:
-  - every agent has finished, with nothing waiting for your approval;
-  - you have not used the Mac for a few minutes;
-  - no build tool is running.
-- A cancellable countdown is shown in the menu bar and on Telegram before the Mac sleeps.
-- If new work starts during the countdown, it is cancelled automatically.
-- Shutdown is a separate, opt-in feature with a two-step confirmation.
-
-### Keep awake
-
-- AI Over9 uses its own macOS power assertion; no other app is needed.
-- **Automatic mode:** the Mac stays awake while agents work, while an automation runs, during scheduled windows, and when you ask.
-- **Manual mode:** one hour, a custom time, or until you stop it — from the app, the menu bar or Telegram.
-- **Battery aware:** you are warned on low battery, and keep-awake can be released below a level you choose so macOS can protect the battery.
-
-### Fans and cooling
-
-- **Read** the speed of every fan, its range and its mode directly from the Mac. No helper is needed for reading.
-- **Control** speeds through a small privileged helper that you install once with your administrator password:
-  - **Constant speed** per fan, within the hardware limits of your Mac.
-  - **Cool now:** a temporary cooling run that ends when the CPU is cool again (or after a time limit), then returns to Automatic.
-  - **Auto-cool:** starts a cooling run by itself when the CPU reaches 85 °C.
-  - **Saved fan profiles.**
-  - **From the menu bar:** back to Automatic in one click, or a quick fixed speed (quiet, medium, strong, maximum) or a saved profile.
-- **Safety first:**
-  - the helper only accepts fixed fan commands and checks every value against your Mac's limits;
-  - the fans return to Automatic when you quit the app, when the temperature gets high, or if AI Over9 stops responding (watchdog);
-  - AI Over9 never fights another fan app — while one is in control, AI Over9 only reads.
-- Developed and tested on a MacBook Pro with M3 Max.
+| | | |
+|---|---|---|
+| 🌙 | **Finish, then sleep** | Waits until every agent is done, nothing waits for approval and you have been away a few minutes; then a 2-minute cancellable countdown (in the menu bar and on Telegram) and sleep. New work cancels it. |
+| ❄️ | **Cool the Mac** | Faster fans until the CPU is cool, then back to Automatic. Optional auto-cool at 85 °C. |
+| ☕ | **Keep awake** | One hour, or until you stop it. |
 
 ### Usage limits
 
-- **Token usage** from your local Claude Code and Codex session files: today, the last 7 and 30 days, by agent, model and project.
-- **Plan limits with real numbers** (optional, *Exact numbers*): the 5-hour and weekly percentages and reset times, read from your Claude and ChatGPT accounts using the sign-in those tools already stored on your Mac.
-  - Tokens are used in memory for that request only and never stored.
-  - These services are not officially documented and can change.
-  - Percentages are only shown when they come from the provider — AI Over9 never guesses them.
-- **Alerts** when a limit is almost used up, is reached, or is available again — as a message from the menu bar icon and on Telegram.
-
-### Telegram remote
-
-Pair your own Telegram bot (one bot per Mac). Roles control who can do what: **viewer** (read only), **operator** (everyday actions), **owner** (power and fan speeds).
-
-| Command | What it does |
-|---|---|
-| `/status`, `/menu` | Mac overview and quick buttons |
-| `/why` | Why the Mac is awake, and what still blocks sleep |
-| `/agents`, `/sessions` | Agents and tracked sessions |
-| `/usage`, `/reset` | Token usage, plan limits and reset times |
-| `/awake`, `/awake 30`, `/awake off` | Keep-awake status, keep awake N more minutes, stop |
-| `/sleep` | Request sleep (safety checks and countdown) |
-| `/fans`, `/fans auto`, `/fans cool`, `/fans set <1/2/all> <rpm>` | Fan status, back to Automatic, cool now, constant speed (owner, if allowed) |
-| `/fans profiles`, `/fans profile <name>` | Saved fan profiles |
-| `/mission`, `/missions`, `/report` | Current mission, recent missions, last report |
-| `/battery`, `/charging` | Battery, charger and charging state |
-| `/power`, `/profiles`, `/profile <name>` | Power modes |
-| `/schedule`, `/automation`, `/scenarios`, `/history` | Schedules and automations |
-| `/run <scenario>`, `/cancel` | Run an allowed automation, cancel a running one |
-| `/devices`, `/device <name> on/off` | Smart devices |
-| `/health`, `/backup` | Health check, backup status |
-| `/shutdown` | Graceful shutdown (two steps, only if enabled) |
-| `/lang en` · `/lang vi` | Message language |
-
-- **Every risky action needs a confirmation button**, and permissions are checked again when you press it.
-- **Shell commands are never accepted.**
-- **Messages:** agent started working, finished a turn (with the usage left), error or interrupted; approvals needed; usage limits; fan and thermal safety; the app quitting; the Mac shutting down; and a warning when the lid is closed while agents still keep the Mac awake.
+- **Exact numbers** (optional): 5-hour and weekly percentages and reset times from your Claude and ChatGPT accounts, using the sign-in those tools already stored. Tokens stay in memory for the request only. Percentages are shown only when they come from the provider — never guessed.
+- **Token usage** from local session files: today, 7 and 30 days, by agent, model and project (numbers only).
+- **Alerts** when a limit is almost used, reached, or available again.
 
 ### Notifications
 
-- **Usage alerts** drop down from the menu bar icon as a small chat-style message. Other notifications use Notification Center and Telegram.
-- **Quiet hours**, a minimum severity, a per-minute limit and per-kind rules.
-- **"Only when I am away":** agent turn messages are only sent when you have not used the Mac for 2 minutes, so your phone stays quiet while you work. Approvals and limits are always sent.
+- Telegram, Notification Center, and small messages under the menu bar icon.
+- **Only when I am away:** turn messages wait until you have left the computer for 2 minutes. Approvals and limits always come through.
+- Quiet hours, minimum severity, per-kind rules.
 
-### Lock screen status
+### On the Mac
 
-<img src="images/lock-screen.png" alt="Lock screen card: Claude Code and Codex working" width="460">
+- **Lock screen status:** while the Mac is locked, a card under the clock shows working agents, approvals needed and the sleep countdown.
+- **Menu bar apps:** when the menu bar is full or behind the notch, the panel lists every app's icon and opens any of them. **⌥⌘9** (changeable) opens the panel from anywhere.
+- **Fans:** read every fan; with a small helper (installed once with your password) set constant speeds, cool now, auto-cool and saved profiles. Fans return to Automatic on quit, on high temperature and if the app stops responding.
+- **Claude Remote Control:** one switch for every new Claude Code session, to continue it from claude.ai or the Claude app.
+- **Automations, schedules, power modes** (Advanced mode), **Home Assistant and HTTP devices**, **system and storage** views, **backup and restore**.
 
-- While the Mac is locked and an agent works, a card below the clock shows the agents, how long they have been working, and any approval they need.
-- When everything is done, it shows the sleep countdown.
-- It is display only and can be turned off.
-
-### Menu bar apps and shortcut
-
-- **When the menu bar is full**, or the notch covers part of it, macOS hides icons with no way to reach them. The AI Over9 panel shows the icons of every app as a compact grid, marks the hidden ones, and opens any of them with a click (uses the Accessibility permission; it only reads the icons and clicks the one you choose).
-- **A global keyboard shortcut** (⌥⌘9 by default, changeable in Settings › General) opens the AI Over9 panel from any app — also when its own icon is hidden.
-
-### Claude Remote Control
-
-- One switch turns on Claude Code's Remote Control for every new session, in the terminal and in VS Code, so you can continue them from claude.ai or the Claude app.
-- Your previous Claude setting is backed up and restored when you turn it off.
-- If your organization disables Remote Control, AI Over9 shows it and changes nothing.
-- Requires a Claude Pro, Max, Team or Enterprise plan.
-
-### Automations, schedules and power modes
-
-*For power users — shown with Advanced mode.*
-
-- **Automations:** "when something happens, if conditions are met, then do this". Built-in examples:
-  - smart overnight completion;
-  - usage limit reached;
-  - approval needed;
-  - thermal safety;
-  - agent turn notifications.
-- **Schedules:** run an automation, keep the Mac awake during a time window, or send a report at a set time. Missed runs are handled safely.
-- **Power modes:** Overnight Coding, Battery Saver, Performance and Always Awake — one switch for a set of keep-awake, battery and notification preferences.
-- **Safety:**
-  - every action that can sleep or shut down the Mac, control fans or devices, quit apps or run scripts needs its own permission in Settings › Safety;
-  - a dry-run mode exists for testing.
-
-### Smart devices
-
-- **Home Assistant:** pick the devices AI Over9 may see. Control is a separate permission for each device, and updates arrive in real time.
-- **Custom HTTP devices** on your local network, with strict limits: same host only, no redirects, size limits.
-- **MacBook charging is monitored only.** AI Over9 never changes charging and never cuts power.
-
-### System and storage
-
-- **Live system view:** CPU, memory, temperature, disk space and network, in the app and in the menu bar.
-- **Storage:** how much space agent sessions, caches and build folders (`node_modules`, `.build`, `dist`, …) use. AI Over9 never deletes anything by itself.
-- **Backup and restore** of your settings, automations and profiles. Secrets are never included.
+<img src="images/lock-screen.png" alt="Lock screen card: Claude Code and Codex working" width="420">
 
 ---
 
-## Installation
+## macOS, Windows and Linux
 
-### macOS
+Every version is published for all three at once. Windows and Linux share one app (preview).
 
-1. Download `AIOver9-<version>-macos-arm64.dmg` from the [latest release](https://github.com/denygame/ai-over9/releases/latest).
-2. Open the DMG and drag **AI Over9** to **Applications**.
-3. **First launch only:** the app is signed by its author but not notarized by Apple, so macOS asks once.
-   - Right-click **AI Over9** in Applications › **Open** › **Open**, or
-   - open **System Settings › Privacy & Security** and click **Open Anyway**.
-4. A short setup assistant guides you through the first steps.
-
-Each release includes a `.sha256` file to verify the download:
-
-```bash
-shasum -a 256 -c AIOver9-<version>-macos-arm64.dmg.sha256
-```
-
-### Windows
-
-1. Download the installer for your PC from the [latest release](https://github.com/denygame/ai-over9/releases/latest):
-   - `AIOver9-<version>-windows-x64-setup.exe` — most PCs (Intel / AMD);
-   - `AIOver9-<version>-windows-arm64-setup.exe` — Windows on ARM (Snapdragon, Surface Pro X / 11…).
-
-   Not sure? *Settings › System › About › System type* says "x64-based" or "ARM-based".
-2. Run it. It installs for your user only, so no administrator rights are needed.
-3. The installer is not code-signed yet: if SmartScreen warns, choose **More info › Run anyway**.
-
-See [Windows](#windows) for setup and details.
-
-### Linux
-
-- **AppImage** (any distribution, updates itself): download `AIOver9-<version>-linux-x64.AppImage`, make it executable (`chmod +x`), keep it in one place (e.g. `~/Applications`) and run it.
-- **.deb** (Ubuntu, Debian…): `sudo apt install ./AIOver9-<version>-linux-amd64.deb`. Updates: install the new .deb.
-
-See [Linux](#linux) for details.
-
----
-
-## First-time setup
-
-| Step | Where | Notes |
+| | macOS | Windows / Linux (preview) |
 |---|---|---|
-| **Agent hooks** | Integrations › Claude Code / Codex › Install | Lets AI Over9 see when your agents work. Your files are merged and backed up. |
-| **Telegram** (optional) | Integrations › Telegram | Create a bot with [@BotFather](https://t.me/BotFather), paste its token **in the app** (stored in the macOS Keychain only), then pair your account from Telegram. |
-| **Fan helper** (optional) | Fans & Power › Install fan helper… | Needed only to change fan speeds. macOS asks for your administrator password once. |
-| **Exact numbers** (optional) | Usage › Exact numbers | Real plan limits from your Claude and ChatGPT accounts. |
-| **Finish, then sleep** | Overview | One switch. |
+| Claude Code and Codex hooks | ✅ | ✅ |
+| Chat with agents from Telegram, continue after a limit | ✅ | ✅ ¹ |
+| Keep awake, Finish then sleep | ✅ sleep | ✅ shut down, hibernate or sleep |
+| Usage limits and token totals | ✅ | ✅ |
+| Telegram remote and notifications | ✅ full command set | ✅ core commands |
+| Other agents from the process list | ✅ | — |
+| Fans, lock screen card, menu bar apps, automations, devices | ✅ | — |
+| Signed automatic updates | ✅ | ✅ |
+
+¹ Not yet verified on real Windows / Linux machines: a message for an open session may wait until its current turn ends.
+
+<img src="images/windows.png" alt="AI Over9 for Windows" width="560">
 
 ---
 
-## Windows
+## Installation details
 
-<img src="images/windows.png" alt="AI Over9 for Windows: overview with two agents working" width="640">
+**macOS** — see [Quick start](#1-install). Each release has a `.sha256` file: `shasum -a 256 -c AIOver9-<version>-macos-arm64.dmg.sha256`.
 
-The Windows app is a preview: it covers the core of AI Over9 and lives in the notification area (next to the clock). Closing its window keeps it running there.
+**Windows**
 
-- **Agents:** connect Claude Code and Codex in **Agents** (your settings files are merged and backed up first). If you moved their folders, pick them there too.
-- **Keep awake:** the PC stays awake while an agent works (the screen can still turn off); a manual "keep awake" for 30 minutes or 2 hours is one click away, also from the tray menu.
-- **Finish, then sleep:** once every agent is done and nobody uses the PC, a countdown runs and the PC is **shut down** (default), **hibernated** or **put to sleep** — your choice in Settings. Shutdown is the default because sleep on many Windows laptops (Modern Standby) keeps using battery and can wake by itself. Shutdown is never forced: apps with unsaved work can still ask you to save.
-- **Usage:** plan limits from your Claude and ChatGPT accounts, token totals from local transcripts (numbers only).
-- **Telegram:** pair your bot with a code, roles (viewer / operator / owner), `/status`, `/why`, `/sessions`, `/usage`, `/awake`, `/fts`, `/sleep` with a confirmation button, `/users`, `/lang`. Messages when an agent finishes, needs approval or hits a limit, before the PC turns off, when the app closes, when Windows shuts down and when the lid is closed while agents work.
-- **Secrets:** the bot token is stored in Windows Credential Manager only.
-- **Data:** `%APPDATA%\AIOver9`. To uninstall, use *Apps › Installed apps*, then delete that folder if you want.
-- **Updates:** checked every 4 hours; nothing is installed until you click **Download and install** in About. Updates are signed and verified before installing.
-- **Not on Windows:** fan control, the lock screen card, the menu bar apps list, automations and smart devices.
+1. Download `AIOver9-<version>-windows-x64-setup.exe` (most PCs) or `…-windows-arm64-setup.exe` (Windows on ARM). *Settings › System › About › System type* tells which.
+2. Run it — installs for your user, no administrator rights. If SmartScreen warns (not code-signed yet): **More info › Run anyway**.
+3. Connect agents in **Agents**, Telegram in **Telegram**, dangerous actions in **Settings**. The bot token lives in Windows Credential Manager. Data: `%APPDATA%\AIOver9`.
+4. *Finish, then sleep* shuts the PC down by default (Modern Standby sleep often keeps draining the battery); hibernate or sleep are options. Shutdown is never forced.
 
----
+**Linux**
 
-## Linux
-
-The Linux app is the same app as on Windows (preview), with the same features and limits. Linux specifics:
-
-- **Turning off** uses systemd-logind: shut down (default), hibernate (if your system supports it) or sleep — never forced.
-- **Idle detection:** the PC is only turned off when nobody uses it — measured on GNOME (X11 and Wayland) and KDE. On other desktops the countdown with its cancel button is the only guard, and the app says so.
-- **Tray icon:** needs AppIndicator support (GNOME: the *AppIndicator* extension, preinstalled on Ubuntu).
-- **Secrets:** the bot token is stored in the system keyring (GNOME Keyring / KWallet).
-- **Data:** `~/.local/share/AIOver9`.
-- **Hooks with the AppImage** call the AppImage file: keep it in one place; after moving it, use *Agents › Repair*.
+- **AppImage** (any distribution, updates itself): `chmod +x`, keep it in one place (e.g. `~/Applications`), run it. After moving it, use *Agents › Repair*.
+- **.deb**: `sudo apt install ./AIOver9-<version>-linux-amd64.deb`.
+- Tray icon needs AppIndicator (GNOME: the *AppIndicator* extension). Token in the system keyring. Idle detection on GNOME and KDE. Data: `~/.local/share/AIOver9`.
 
 ---
 
 ## Updates
 
-- AI Over9 updates itself:
-  - it checks every 4 hours, or whenever you choose **Settings › Updates › Check for updates**;
-  - when a new version is out, it is shown at the top of the menu bar panel and in a message under the menu bar icon that stays until you open it — click to see what's new and install;
-  - the app restarts by itself.
-- Your settings, Telegram pairing, Keychain items and the fan helper are kept.
-- **Security:** every update is verified before it is installed — it must carry the author's signature and be signed with the same certificate as the installed app.
+- Checked every 4 hours or from **Settings › Updates**; a new version shows at the top of the menu bar panel. One click installs it and the app restarts.
+- Every update is verified before installing (author's signature, same certificate). Settings, pairing, Keychain items and the fan helper are kept.
 
 ---
 
 ## Privacy and security
 
-- **Local first.** Sessions, missions, automations, usage numbers and history stay in `~/Library/Application Support/AIOver9` on your Mac.
-- **No account, no analytics, no telemetry.**
-- **Network access happens only for features you turn on:**
-  - Telegram (your own bot);
-  - Home Assistant / HTTP devices (the addresses you configure);
-  - *Exact numbers* (your Claude / ChatGPT account usage);
-  - update checks (GitHub).
-- **Secrets** — bot token, Home Assistant token, device secrets — live only in the macOS Keychain. Never in files, logs or backups.
-- **Agent content:**
-  - only token counts are read from session files — your conversations are not stored;
-  - project names in Telegram messages are optional.
-- **Telegram:**
-  - only paired users, with roles;
-  - risky actions need a confirmation;
-  - no shell commands, ever.
-- **Fan helper:** a small root helper that accepts only fixed fan commands and verifies that it talks to the genuine AI Over9 app.
+- **Local first.** Sessions, history and usage numbers stay in `~/Library/Application Support/AIOver9`.
+- **No account, no analytics, no telemetry.** Network only for what you turn on: your Telegram bot, *Exact numbers* (your Claude / ChatGPT usage), your Home Assistant / HTTP devices, update checks (GitHub).
+- **Secrets** (bot token, authenticator key, device tokens) live only in the Keychain — never in files, logs or backups.
+- **Agent content** leaves the computer only if you turn on *Dangerous actions*, and then only to your own Telegram chat, for the Owner. Otherwise only token counts are read from session files. Project names in messages are optional.
+- **Telegram:** paired people only, roles, confirmations, an authenticator code to write to agents; no shell commands, ever.
+- **Agent configuration files** are merged and backed up; only AI Over9's own entries are added or removed.
 
 ---
 
@@ -364,71 +305,58 @@ The Linux app is the same app as on Windows (preview), with the same features an
 |---|---|---|
 | Notifications | Alerts on this Mac | First launch |
 | Administrator password | Installing the fan helper | Only if you install it |
-| Automation (System Events) | Graceful shutdown or screen lock | Only if you enable those automations |
-| Accessibility | Listing and opening other apps' menu bar icons; sending the screen-lock shortcut | Only when you open *Menu bar apps* or use the lock-screen automation |
-| Documents / Desktop / Downloads | Measuring build folders in your projects | Only when you scan storage there |
+| Accessibility | Opening other apps' menu bar icons; screen-lock shortcut | Only when you use *Menu bar apps* or that automation |
+| Automation (System Events) | Graceful shutdown, screen lock | Only if you enable those automations |
+| Documents / Desktop / Downloads | Measuring build folders | Only when you scan storage there |
 
 ---
 
 ## FAQ and troubleshooting
 
+**Codex sessions never appear (no status, no messages).**
+Codex has not trusted the hooks. Open **Integrations › Codex** and use **Review in Terminal…** ([step 3](#3-connect-codex)), then restart Codex where you use it.
+
+**I replied to a Codex answer and the bot says "⏳ when its current turn ends".**
+That session is working right now; your message goes in when the turn ends. If it is open in another Codex window that does not answer, close that window: the message then continues the session in the background.
+
+**The bot asks for `/unlock` again.**
+The unlock period ended (Settings › Dangerous actions › *Unlock lasts*), you sent `/lock`, or the app restarted. Send `/unlock` with a fresh code.
+
+**No Telegram message when an agent finished.**
+*Settings › Notifications › Only when I am away* holds turn messages while you use the computer. Answers (💬) need *Dangerous actions › Send the agents' final answers*.
+
 **The Mac did not sleep after the agents finished.**
-It waits until you have left the Mac alone for a few minutes and nothing is still running. The 🌙 tile and `/why` on Telegram show what it is waiting for.
-
-**No Telegram message when an agent finished a turn.**
-Check Settings › Notifications › "Only when I am away": while you are using the Mac, turn messages are not sent.
-
-**The fan helper is not responding.**
-Use Fans & Power › Reinstall fan helper…. Updates ask for this only when the helper itself has changed.
-
-**Fan control stays read-only.**
-Another fan app is probably in control. Set it to Automatic and quit it, or confirm in AI Over9 that it may take over.
+It waits until you have been away a few minutes and nothing is still running. The 🌙 tile and `/why` say what it waits for.
 
 **Usage percentages are missing.**
-Turn on *Exact numbers* on the Usage page. Without it, AI Over9 shows token counts only — it never estimates plan percentages.
+Turn on **Exact numbers** (Usage, or the green link on the Dashboard). Without it only token counts are shown — percentages are never estimated.
 
-**macOS says the app cannot be opened.**
-See [Installation](#installation), step 3. This is needed once.
+**The menu bar icon is missing.** The menu bar is full or behind the notch: press ⌥⌘9, or open AI Over9 from Spotlight.
 
-**The AI Over9 icon is not in the menu bar.**
-The menu bar is probably full (or behind the notch). Press ⌥⌘9 (or your own shortcut) to open the panel, or open AI Over9 from Spotlight to show its window.
+**macOS says the app cannot be opened.** See [Install](#1-install), step 2 — needed once.
 
-**Linux: no tray icon.**
-On GNOME, install or enable the *AppIndicator and KStatusNotifierItem Support* extension.
+**Windows: SmartScreen blocks the installer.** **More info › Run anyway** (not code-signed yet).
 
-**Windows: SmartScreen blocks the installer.**
-The installer is not code-signed yet. Choose **More info › Run anyway**.
+**Linux: no tray icon.** Enable the *AppIndicator and KStatusNotifierItem Support* extension (GNOME).
 
 ---
 
 ## Uninstall
 
-1. **Optional, from the app:**
-   - remove the agent hooks (Integrations › Claude Code / Codex);
-   - remove the fan helper (Fans & Power › Remove fan helper; asks for your administrator password);
-   - turn off Remote Control if you turned it on.
-2. Quit AI Over9 from the menu bar, then delete **AI Over9** from Applications.
-3. **Optional:** delete its data:
-   ```bash
-   rm -rf ~/Library/Application\ Support/AIOver9
-   ```
-   Keychain items are listed under `dev.huynt.aiover9` in Keychain Access.
+1. Optional, in the app: remove the agent hooks (Integrations › Claude Code / Codex › Preview removal), the fan helper (Fans & Power) and Remote Control.
+2. Quit AI Over9 from the menu bar and delete it from Applications.
+3. Optional: `rm -rf ~/Library/Application\ Support/AIOver9`. Keychain items are under `dev.huynt.aiover9`.
 
 ---
 
 ## License
 
 - Copyright © 2026 HuyNT. All rights reserved.
-- AI Over9 is provided "as is", without warranty of any kind. You use automations that can sleep or shut down your computer, or control fans or devices, at your own risk.
-- **Third-party software:**
-  - [Sparkle](https://sparkle-project.org) (MIT) for updates on macOS;
-  - Windows and Linux: [Tauri](https://tauri.app) (MIT / Apache-2.0) and open-source Rust crates (MIT / Apache-2.0); the window uses Microsoft Edge WebView2 (Windows) or WebKitGTK (Linux);
-  - native fan control was written for AI Over9, informed by the MIT-licensed projects [AutoFansMac](https://github.com/garyhooi/AutoFansMac), [MacFanControl](https://github.com/raminsharifi/MacFanControl) and [macsfan](https://github.com/matejrondzik/macsfan).
-
----
+- Provided "as is", without warranty. Automations that sleep or shut down the computer, control fans or devices, or let you write to agents from Telegram are used at your own risk.
+- Third-party software: [Sparkle](https://sparkle-project.org) (MIT) on macOS; [Tauri](https://tauri.app) and open-source Rust crates (MIT / Apache-2.0) on Windows and Linux. Native fan control was written for AI Over9, informed by the MIT-licensed [AutoFansMac](https://github.com/garyhooi/AutoFansMac), [MacFanControl](https://github.com/raminsharifi/MacFanControl) and [macsfan](https://github.com/matejrondzik/macsfan).
 
 ## Support
 
-AI Over9 is free, with no ads and no tracking. If it makes your nights a little easier, you can buy the author a coffee from **About** in the app — entirely optional; the app stays the same either way.
+AI Over9 is free, with no ads and no tracking. If it makes your nights easier, you can buy the author a coffee from **About** in the app — entirely optional.
 
 Questions, ideas or bugs: open an [issue](https://github.com/denygame/ai-over9/issues).
