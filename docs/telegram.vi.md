@@ -83,6 +83,7 @@ thư mục dự án trong tin nhắn*).
 | `/schedule`, `/automation`, `/run <tên>` | Người xem · Vận hành | Lịch, tự động hoá được phép |
 | `/devices`, `/device <tên> on/off` | Người xem · Vận hành | Thiết bị thông minh |
 | `/unlock <mã>`, `/lock` | Chủ sở hữu | Mở / khoá chat với agent |
+| `/new <thư mục> [claude/codex] <việc>` | Chủ sở hữu | Mở phiên agent mới trong thư mục nằm trong thư mục cha được phép |
 | `/users`, `/revoke` | Chủ sở hữu | Người dùng |
 | `/lang en` · `/lang vi`, `/help` | Người xem | Ngôn ngữ, trợ giúp |
 
@@ -129,7 +130,8 @@ khởi động lại. `/lock` để khoá.
 ### Tin của bạn đi đâu
 
 - **Reply một câu trả lời** → vào phiên của câu trả lời đó. Cách chắc chắn nhất khi có nhiều phiên.
-- **Nhắn thường** → vào phiên của câu trả lời gần nhất bạn nhận được.
+- **Nhắn thường** → vào phiên bạn đã chọn trong `/sessions` (💬 #n hoặc `/sessions n`), nếu chưa chọn thì vào phiên của
+  câu trả lời gần nhất bạn nhận được.
 - Reply một câu trả lời bot không còn tra được thì bị từ chối kèm lời giải thích — không bao giờ gửi sang phiên khác.
 
 ### Sau đó điều gì xảy ra
@@ -144,7 +146,45 @@ khởi động lại. `/lock` để khoá.
 Nếu có gì không chạy được (ví dụ thiếu công cụ dòng lệnh của agent), bot nói rõ lý do — tin không bao giờ bị bỏ qua
 trong im lặng.
 
+### Ảnh và file
+
+**Cài đặt › Hành động nguy hiểm › Cho Chủ sở hữu gửi ảnh và file vào phiên agent** (mặc định tắt, cần bật chat với
+agent). Sau đó gửi ảnh, ảnh chụp màn hình hay tài liệu — kèm yêu cầu ở phần chú thích, hoặc không — giống hệt một tin
+nhắn: reply một câu trả lời, hoặc gửi vào phiên bạn đã chọn.
+
+- File được lưu trong dự án của phiên, ở `.aio-files/` (được thêm vào `.git/info/exclude` nên không lẫn vào git; file
+  quá 7 ngày tự xoá). Nếu không biết thư mục dự án thì lưu trong thư mục riêng của AI Over9.
+- Agent nhận chú thích của bạn kèm đường dẫn từng file, rồi tự mở bằng công cụ của nó — Claude Code và Codex đều đọc
+  được ảnh.
+- Album (nhiều ảnh cùng lúc) được gộp thành một tin. Tối đa 10 file, mỗi file 20 MB (giới hạn của Telegram cho bot).
+- Dùng chung lần mở khoá với nhắn tin. AI Over9 không bao giờ tự mở hay chạy file; lưu ý file cũng có thể chứa chỉ dẫn
+  như một tin nhắn.
+
 ---
+
+## Duyệt yêu cầu cấp quyền
+
+**Cài đặt › Hành động nguy hiểm › Duyệt yêu cầu cấp quyền của agent từ Telegram** (cần bật chat với agent).
+
+- Khi không ai dùng máy (1–10 phút, tuỳ bạn chọn), yêu cầu cấp quyền của agent — chạy lệnh, sửa file… — được gửi kèm
+  agent, dự án, tiêu đề phiên và đúng câu lệnh, cùng nút **✅ Cho phép / ❌ Từ chối**.
+- Chỉ Chủ sở hữu, khi đang mở khoá. Bấm nút lúc đang khoá thì bot yêu cầu `/unlock` rồi gửi lại nút.
+- Không có trả lời trong khoảng 14 phút → không cho phép gì; agent hỏi trên máy như thường.
+- Đang ngồi máy thì hộp thoại của agent hiện ngay — không hỏi qua Telegram.
+- Dùng được cho Claude Code và Codex. AI Over9 tăng thời gian chờ cho mục hook duyệt quyền của chính nó; Codex sẽ hỏi
+  bạn duyệt lại hook đã đổi một lần.
+
+## Nút theo phiên và mở phiên mới
+
+- `/sessions` đánh số các phiên và thêm nút cho Chủ sở hữu ở mọi phiên Claude Code và Codex, kể cả phiên đã xong (sẽ
+  chạy tiếp ở nền): **💬 Nhắn #n** chọn phiên nhận tin, ảnh và file tiếp theo (gõ `/sessions n` cũng được),
+  **📄 Thay đổi #n** xem thay đổi chưa commit của dự án (`git diff --stat`, chỉ đọc), **⏹ #n** dừng lượt hiện tại của
+  phiên Codex đang mở trong cửa sổ (cần mở khoá). Phiên đang chọn được đánh dấu 👈 trong danh sách.
+- `/new <thư mục> [claude|codex] <việc cần làm>` mở phiên mới trong một thư mục **nằm trong thư mục cha** bạn chọn ở
+  **Cài đặt › Hành động nguy hiểm › Mở phiên agent mới từ Telegram** (bật công tắc là app hỏi chọn). `/new web-shop thêm
+  test` chạy trong `<thư mục cha>/web-shop`, `apps/web-shop` cũng được, thư mục chưa có thì được tạo mới. Không bao giờ
+  ra ngoài thư mục cha: đường dẫn tuyệt đối, `~`, `..`, thư mục ẩn và liên kết trỏ ra ngoài đều bị từ chối. Chỉ Chủ sở
+  hữu, khi đang mở khoá. Câu trả lời gửi về đây và phiên hiện trong `/sessions`.
 
 ## Tiếp tục khi hết hạn mức
 
