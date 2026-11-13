@@ -384,6 +384,6 @@ Turn on **Exact numbers** (Usage, or the green link on the Dashboard). Without i
 
 ## Support
 
-AI Over9 is free, with no ads. If it makes your nights easier, you can buy the author a coffee from **About** in the app — entirely optional.
+AI Over9 is free, with no ads. If it makes your nights easier, you can buy the author a coffee from **About** in the app, or from abroad via [PayPal](https://paypal.me/HuyNT2202) — entirely optional.
 
 Questions, ideas or bugs: open an [issue](https://github.com/denygame/ai-over9/issues).
