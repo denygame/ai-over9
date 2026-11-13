@@ -43,6 +43,9 @@ vẽ lại. Giờ chỉ tính một lần khi có bản ghi mới hoặc sang ng
 | Phân vị 95 | 49,5% | 32,5% |
 | Bộ nhớ vật lý thực dùng | 76 MB | 72 MB |
 
+**0.9.3** chỉ đọc các cảm biến nhiệt cho số hợp lệ: khi chạy nền, CPU trung bình giảm từ 1,4% xuống **1,1%** (trung vị
+0%, phân vị 95 là 5,1%). Khi mở cửa sổ, mức dùng nằm trong biên dao động giữa các lần đo (5–6%).
+
 ## Ý nghĩa
 
 - **Phần lớn thời gian AI Over9 chạy nền**, và khi đó tốn khoảng bằng một đồng hồ trên thanh menu: trung bình chừng 1%
