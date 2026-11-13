@@ -34,7 +34,7 @@ Agent AI giờ làm việc hàng giờ liền, nhiều phiên, nhiều dự án 
 | 📊 **Nắm rõ hạn mức** | Hạn mức 5 giờ và theo tuần bằng số thật từ tài khoản Claude và ChatGPT; cảnh báo trước khi chạm ngưỡng; tuỳ chọn tự chạy tiếp phiên bị dừng khi hạn mức phục hồi. |
 | 📱 **Mọi thứ qua Telegram** | Trạng thái, phiên, hạn mức, giữ thức, cho ngủ, quạt, tự động hoá — có phân quyền và nút xác nhận. Không bao giờ chạy lệnh shell. |
 
-Mọi thứ chạy trên máy bạn. Không tài khoản, không analytics, không telemetry.
+Mọi thứ chạy trên máy bạn. Không tài khoản, không analytics — chỉ có lượt đếm cài đặt ẩn danh mỗi ngày, tắt được.
 
 <p align="center">
   <img src="images/demo-telegram.gif" alt="Demo: ba phiên agent trên Mac, một cuộc chat Telegram nhận câu trả lời và gửi tin reply vào đúng từng phiên" width="860">
@@ -76,6 +76,8 @@ Mọi thứ chạy trên máy bạn. Không tài khoản, không analytics, khô
 1. Tải `AIOver9-<version>-macos-arm64.dmg` ở [bản phát hành mới nhất](https://github.com/denygame/ai-over9/releases/latest), mở ra và kéo **AI Over9** vào **Applications**.
 2. **Chỉ lần mở đầu tiên:** app được tác giả ký nhưng chưa được Apple notarize. Nhấp phải **AI Over9** › **Open** › **Open** (hoặc *System Settings › Privacy & Security › Open Anyway*).
 3. Biểu tượng 🌙 xuất hiện trên thanh menu và trợ lý thiết lập mở ra.
+
+Hoặc dùng Homebrew: `brew install --cask denygame/tap/ai-over9`.
 
 Windows và Linux: xem [Cài đặt chi tiết](#cài-đặt-chi-tiết).
 
@@ -173,6 +175,16 @@ Hướng dẫn đầy đủ: [Telegram › Chat với agent](docs/telegram.vi.md
 
 **Câu trả lời trên điện thoại** giữ nguyên định dạng: chữ đậm, danh sách, link, khối code, và bảng (hiển thị thành các cột thẳng hàng). Câu trả lời quá dài được rút gọn, có ghi chú.
 
+**Duyệt từ điện thoại** *(tuỳ chọn, Cài đặt › Hành động nguy hiểm)*: khi bạn vắng máy, yêu cầu cấp quyền của Claude Code
+và Codex được gửi kèm nút **Cho phép / Từ chối**. Không có trả lời → agent hỏi trên máy; không bao giờ tự cho phép.
+
+**Ảnh và file** *(tuỳ chọn, Cài đặt › Hành động nguy hiểm)*: gửi ảnh chụp màn hình hay tài liệu, ghi yêu cầu ở phần chú
+thích; file được lưu trong dự án của phiên (không lẫn vào git) và agent tự mở ra xem.
+
+**Nút theo phiên và giao việc mới:** `/sessions` đánh số các phiên kèm nút để chọn phiên nhận tin tiếp theo (hoặc gõ
+`/sessions 3`), xem thay đổi chưa commit của dự án, hoặc dừng lượt của Codex. `/new <thư mục> <việc>` mở phiên mới trong
+một thư mục nằm trong thư mục cha bạn đã chọn — chưa có thì tạo, không bao giờ ra ngoài.
+
 **Tiếp tục khi hết hạn mức** *(quy tắc tuỳ chọn, Cài đặt › Hành động nguy hiểm)*: phiên bị dừng vì hết hạn mức sẽ nhận đoạn chữ của bạn (mặc định `continue`) khi hạn mức được làm mới — tối đa 3 lần mỗi phiên. Máy được giữ thức tới lúc đó, nên *Xong việc rồi ngủ* sẽ chờ phiên thay vì ngủ quên qua giờ phục hồi. Hợp cho việc dài chạy qua đêm.
 
 **An toàn ngay từ thiết kế:**
@@ -195,6 +207,7 @@ Hướng dẫn đầy đủ: [Telegram › Chat với agent](docs/telegram.vi.md
 | `/awake`, `/awake 30`, `/awake off` | Trạng thái giữ thức, giữ thêm N phút, tắt |
 | `/sleep`, `/cancel` | Yêu cầu cho máy ngủ (kiểm tra an toàn, đếm ngược), huỷ |
 | `/unlock <mã>`, `/lock` | Mở / khoá việc nhắn cho agent (Chủ sở hữu, mã Authenticator) |
+| `/new <thư mục> [claude/codex] <việc>` | Mở phiên mới trong thư mục nằm trong thư mục cha được phép (Chủ sở hữu, đã mở khoá) |
 | `/fans`, `/fans auto`, `/fans cool`, `/fans set <1/2/all> <rpm>` | Quạt: trạng thái, Tự động, làm mát ngay, tốc độ cố định (Chủ sở hữu, nếu cho phép) |
 | `/mission`, `/missions`, `/report` | Việc của đêm nay và báo cáo |
 | `/battery`, `/power`, `/profile <tên>` | Pin, chế độ nguồn |
@@ -303,7 +316,8 @@ Mỗi phiên bản được phát hành cho cả ba cùng lúc. Windows và Linu
 ## Quyền riêng tư và bảo mật
 
 - **Ưu tiên cục bộ.** Phiên, lịch sử và số liệu sử dụng nằm trong `~/Library/Application Support/AIOver9`.
-- **Không tài khoản, không analytics, không telemetry.** Chỉ dùng mạng cho những gì bạn bật: bot Telegram của bạn, *Số chính xác* (hạn mức Claude / ChatGPT), Home Assistant / thiết bị HTTP của bạn, kiểm tra cập nhật (GitHub).
+- **Không tài khoản, không analytics.** Chỉ dùng mạng cho những gì bạn bật: bot Telegram của bạn, *Số chính xác* (hạn mức Claude / ChatGPT), Home Assistant / thiết bị HTTP của bạn, kiểm tra cập nhật (GitHub).
+- **Đếm lượt cài ẩn danh** (Cài đặt › Chung, mặc định bật, tắt được): mỗi ngày một lần app gửi một mã cài đặt ngẫu nhiên tạo trên máy bạn, phiên bản app, phiên bản hệ điều hành và loại chip — không gì khác (không tên, dự án, agent hay số liệu sử dụng). Nhờ vậy biết có bao nhiêu máy dùng AI Over9 và phiên bản nào còn cần hỗ trợ.
 - **Bí mật** (token bot, khoá Authenticator, token thiết bị) chỉ nằm trong Keychain — không bao giờ có trong file, log hay bản sao lưu.
 - **Nội dung của agent** chỉ rời khỏi máy khi bạn bật *Hành động nguy hiểm*, và chỉ tới chat Telegram của chính bạn, cho Chủ sở hữu. Ngoài ra chỉ đọc số token từ file phiên. Tên dự án trong tin nhắn có thể ẩn.
 - **Telegram:** chỉ người đã ghép nối, có phân quyền, có nút xác nhận, cần mã Authenticator để nhắn cho agent; không bao giờ chạy lệnh shell.
@@ -369,6 +383,6 @@ Bật **Số chính xác** (trang Sử dụng, hoặc link xanh trên Tổng qua
 
 ## Ủng hộ
 
-AI Over9 miễn phí, không quảng cáo, không theo dõi. Nếu app giúp những đêm làm việc của bạn nhẹ nhàng hơn, bạn có thể mời tác giả một ly cà phê trong mục **Giới thiệu** của app — hoàn toàn tuỳ ý.
+AI Over9 miễn phí, không quảng cáo. Nếu app giúp những đêm làm việc của bạn nhẹ nhàng hơn, bạn có thể mời tác giả một ly cà phê trong mục **Giới thiệu** của app — hoàn toàn tuỳ ý.
 
 Câu hỏi, ý tưởng hay lỗi: mở một [issue](https://github.com/denygame/ai-over9/issues).
