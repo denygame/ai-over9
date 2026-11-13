@@ -34,7 +34,7 @@ AI agents now work for hours, in several sessions, in several projects at once. 
 | 📊 **Know your limits** | 5-hour and weekly plan usage with the real numbers from your Claude and ChatGPT accounts; alerts before you hit them; an optional rule continues stopped sessions when the limit resets. |
 | 📱 **Everything from Telegram** | Status, sessions, usage, keep awake, sleep, fans, automations — with roles and confirmation buttons. Never a shell command. |
 
-Everything runs locally. No account, no analytics, no telemetry.
+Everything runs locally. No account, no analytics — only an anonymous daily install count, which you can turn off.
 
 <p align="center">
   <img src="images/demo-telegram.gif" alt="Demo: three agent sessions on a Mac, one Telegram chat receiving their answers and sending replies into each session" width="860">
@@ -75,6 +75,8 @@ Everything runs locally. No account, no analytics, no telemetry.
 1. Download `AIOver9-<version>-macos-arm64.dmg` from the [latest release](https://github.com/denygame/ai-over9/releases/latest), open it and drag **AI Over9** to **Applications**.
 2. **First launch only:** the app is signed by its author but not notarized by Apple. Right-click **AI Over9** › **Open** › **Open** (or *System Settings › Privacy & Security › Open Anyway*).
 3. The 🌙 icon appears in the menu bar and a short setup assistant opens.
+
+Or with Homebrew: `brew install --cask denygame/tap/ai-over9`.
 
 Windows and Linux: see [Installation details](#installation-details).
 
@@ -172,6 +174,17 @@ Full guide: [Telegram › Chatting with your agents](docs/telegram.md#chatting-w
 
 **Answers on your phone** keep their formatting: bold, lists, links, code blocks, and tables (as aligned columns). Very long answers are shortened, with a note.
 
+**Approve from your phone** *(optional, Settings › Dangerous actions)*: while you are away, permission prompts of
+Claude Code and Codex arrive with **Allow / Deny**. No answer → the agent asks on the computer; nothing is ever approved
+by itself.
+
+**Photos and files** *(optional, Settings › Dangerous actions)*: send a screenshot or a document with your request as
+the caption; it is saved in the session's project (kept out of git) and the agent opens it.
+
+**Session buttons and new work:** `/sessions` numbers the sessions with buttons to choose where your next message goes
+(also `/sessions 3`), show its project's uncommitted changes, or stop a Codex turn. `/new <folder> <task>` starts a new
+session in a folder inside the parent folder you chose — created if needed, never outside it.
+
 **Continue after a usage limit** *(optional rule, Settings › Dangerous actions)*: a session stopped by a usage limit gets your text (default `continue`) once the limit resets — at most 3 times per session. The computer stays awake until then, so *Finish, then sleep* waits for the session instead of sleeping through the reset. Good for long tasks that run overnight.
 
 **Safety, by design:**
@@ -194,6 +207,7 @@ Full guide: [Telegram › Chatting with your agents](docs/telegram.md#chatting-w
 | `/awake`, `/awake 30`, `/awake off` | Keep-awake status, keep awake N more minutes, stop |
 | `/sleep`, `/cancel` | Request sleep (safety checks, countdown), cancel it |
 | `/unlock <code>`, `/lock` | Open / close writing to agents (Owner, authenticator code) |
+| `/new <folder> [claude/codex] <task>` | Start a new session in a folder inside the allowed parent (Owner, unlocked) |
 | `/fans`, `/fans auto`, `/fans cool`, `/fans set <1/2/all> <rpm>` | Fan status, Automatic, cool now, constant speed (Owner, if allowed) |
 | `/mission`, `/missions`, `/report` | Tonight's work and its report |
 | `/battery`, `/power`, `/profile <name>` | Battery, power modes |
@@ -302,7 +316,8 @@ Every version is published for all three at once. Windows and Linux share one ap
 ## Privacy and security
 
 - **Local first.** Sessions, history and usage numbers stay in `~/Library/Application Support/AIOver9`.
-- **No account, no analytics, no telemetry.** Network only for what you turn on: your Telegram bot, *Exact numbers* (your Claude / ChatGPT usage), your Home Assistant / HTTP devices, update checks (GitHub).
+- **No account, no analytics.** Network only for what you turn on: your Telegram bot, *Exact numbers* (your Claude / ChatGPT usage), your Home Assistant / HTTP devices, update checks (GitHub).
+- **Anonymous install count** (Settings › General, on by default, can be turned off): once a day the app sends a random install id made on your computer, the app version, the system version and the chip type — nothing else (no names, projects, agents or usage). It shows how many computers use AI Over9 and which versions still need support.
 - **Secrets** (bot token, authenticator key, device tokens) live only in the Keychain — never in files, logs or backups.
 - **Agent content** leaves the computer only if you turn on *Dangerous actions*, and then only to your own Telegram chat, for the Owner. Otherwise only token counts are read from session files. Project names in messages are optional.
 - **Telegram:** paired people only, roles, confirmations, an authenticator code to write to agents; no shell commands, ever.
@@ -368,6 +383,6 @@ Turn on **Exact numbers** (Usage, or the green link on the Dashboard). Without i
 
 ## Support
 
-AI Over9 is free, with no ads and no tracking. If it makes your nights easier, you can buy the author a coffee from **About** in the app — entirely optional.
+AI Over9 is free, with no ads. If it makes your nights easier, you can buy the author a coffee from **About** in the app — entirely optional.
 
 Questions, ideas or bugs: open an [issue](https://github.com/denygame/ai-over9/issues).
