@@ -35,7 +35,7 @@ AI agents now work for hours, in several sessions, in several projects at once. 
 | 📊 **Know your limits** | 5-hour and weekly plan usage with the real numbers from your Claude and ChatGPT accounts; alerts before you hit them; an optional rule continues stopped sessions when the limit resets. |
 | 📱 **Everything from Telegram** | Status, sessions, usage, keep awake, sleep, fans, automations — with roles and confirmation buttons. Never a shell command. |
 
-Everything runs locally. No account, no analytics — only an anonymous daily install count, which you can turn off.
+Everything runs locally. No account, no analytics — only an anonymous daily install count (see [Privacy](#privacy-and-security)).
 
 <p align="center">
   <img src="images/demo-telegram.gif" alt="Demo: three agent sessions on a Mac, one Telegram chat receiving their answers and sending replies into each session" width="860">
@@ -58,6 +58,7 @@ Everything runs locally. No account, no analytics — only an anonymous daily in
 - [Managing many agents and sessions from Telegram](#managing-many-agents-and-sessions-from-telegram)
 - [Telegram commands](#telegram-commands)
 - [Features](#features)
+- [The lock screen](#the-lock-screen)
 - [macOS, Windows and Linux](#macos-windows-and-linux)
 - [Installation details](#installation-details)
 - [Updates](#updates)
@@ -175,9 +176,10 @@ Full guide: [Telegram › Chatting with your agents](docs/telegram.md#chatting-w
 
 **Answers on your phone** keep their formatting: bold, lists, links, code blocks, and tables (as aligned columns). Very long answers are shortened, with a note.
 
-**Approve from your phone** *(optional, Settings › Dangerous actions)*: while you are away, permission prompts of
-Claude Code and Codex arrive with **Allow / Deny**. No answer → the agent asks on the computer; nothing is ever approved
-by itself.
+**Approve from your phone** *(optional, Settings › Dangerous actions)*: permission prompts of Claude Code and Codex
+arrive with **Allow / Deny** — also while you sit at the computer (then it waits for the phone only a short while, 2
+minutes by default, before the agent asks on the computer). No answer → the agent asks on the computer; nothing is ever
+approved by itself.
 Risky commands (push, publish, deploy, deleting files) are never sent to the phone unless you turn on a separate
 switch (off by default, with a disclaimer); then they need **Allow**, a fresh authenticator code (`/confirm`) and one
 more confirmation of the exact command.
@@ -198,7 +200,9 @@ Git in projects that have none, so every change can be restored. It never pushes
 **Photos and files** *(optional, Settings › Dangerous actions)*: send a screenshot or a document with your request as
 the caption; it is saved in the session's project (kept out of git) and the agent opens it.
 
-**Session buttons and new work:** `/sessions` numbers the sessions with buttons to choose where your next message goes
+**Session buttons and new work:** `/current_sessions` (open only), `/sessions` (all, including older conversations from
+Claude Code's and Codex's history, so you can continue one that ended days ago) and `/session_project <folder>` number
+the sessions with buttons to choose where your next message goes
 (also `/sessions 3`), show its project's uncommitted changes, or stop a Codex turn. `/new <folder> <task>` starts a new
 session in a folder inside the parent folder you chose — created if needed, never outside it.
 
@@ -219,11 +223,13 @@ session in a folder inside the parent folder you chose — created if needed, ne
 |---|---|
 | `/status`, `/menu` | Overview with quick buttons |
 | `/why` | Why the computer is awake, what still blocks sleep |
-| `/agents`, `/sessions` | Agents and their sessions |
+| `/agents`, `/current_sessions`, `/sessions`, `/session_project <folder>` | Agents; open sessions, all sessions (older ones too), one project's sessions |
 | `/usage`, `/reset` | Plan limits, reset times, token usage |
 | `/awake`, `/awake 30`, `/awake off` | Keep-awake status, keep awake N more minutes, stop |
 | `/sleep`, `/cancel` | Request sleep (safety checks, countdown), cancel it |
 | `/unlock <code>`, `/lock` | Open / close writing to agents (Owner, authenticator code) |
+| `/testapproval` | A sample approval request, same steps as a real one — nothing runs (Owner) |
+| `/open`, `/lockscreen` | Open an app from the list you chose on the Mac (Operator) · lock the screen; unlocking only at the Mac (Owner) |
 | `/new <folder> [claude/codex] <task>` | Start a new session in a folder inside the allowed parent (Owner, unlocked) |
 | `/fans`, `/fans auto`, `/fans cool`, `/fans set <1/2/all> <rpm>` | Fan status, Automatic, cool now, constant speed (Owner, if allowed) |
 | `/mission`, `/missions`, `/report` | Tonight's work and its report |
@@ -267,8 +273,9 @@ Every risky action asks for a confirmation button, and permissions are checked a
 
 ### On the Mac
 
-- **Night-shift lock screen:** while the Mac is locked and agents work, a full-screen view shows a large headline (AI at work, or the countdown to sleep), each session with the one that needs you lit up, recent activity (new prompts, approvals, finished turns), kept awake and fans, usage left and battery — on every display, with the password field left clear. Short opening and change animations, nothing that moves all night. The compact card is still available (Settings › Notifications).
-- **AI screen:** the same view in a window on any display you choose, without locking — to keep an eye on the agents from a second screen. Esc closes it.
+- **Night-shift lock screen:** while the Mac is locked and agents work, a full-screen view shows a large headline (AI at work, or the countdown to sleep), each session with the one that needs you lit up, recent activity (new prompts, approvals, finished turns), kept awake and fans, usage left and battery — on every display, with the password field left clear. Short opening and change animations, nothing that moves all night. The compact card is still available (Settings › Lock screen and AI screen).
+- **AI worked today:** how long your agents worked today — overlapping sessions count once, time waiting for approval does not — with the Claude / Codex split, at the top of the menu bar panel and on the lock screen and AI screen.
+- **AI screen:** the same view in a window on any display you choose, without locking — to keep an eye on the agents from a second screen: one button per display in the menu bar. Esc closes it.
 - **Several macOS accounts on one Mac:** each account can share a summary of its AI work (agents, projects, approvals, sleep countdown — never prompts or code) and sees the others' on its lock screen and AI screen. Off by default. One account never puts the Mac to sleep under another account's running agents.
 - **Keeps running:** if AI Over9 is killed or crashes, macOS opens it again within seconds (Quit still quits). Every minute it checks that the agents' hooks still point to it and puts them back if something changed them.
 - **Menu bar apps:** when the menu bar is full or behind the notch, the panel lists every app's icon and opens any of them. **⌥⌘9** (changeable) opens the panel from anywhere.
@@ -276,10 +283,35 @@ Every risky action asks for a confirmation button, and permissions are checked a
 - **Claude Remote Control:** one switch for every new Claude Code session, to continue it from claude.ai or the Claude app.
 - **Automations, schedules, power modes** (Advanced mode), **Home Assistant and HTTP devices**, **system and storage** views, **backup and restore**.
 
+---
+
+## The lock screen
+
+Lock the Mac while agents work and the screen turns into a **night-shift dashboard** — readable from across the room,
+calm enough to leave on all night.
+
 <p align="center">
-  <img src="images/lock-screen.jpg" alt="Night-shift lock screen: AI at work, two sessions with one needing approval, another account on the Mac, recent activity, usage and battery" width="860">
-  <br><sub>While the Mac is locked: who is working, who needs you, and what just happened (sample data).</sub>
+  <img src="images/lock-screen.jpg" alt="Night-shift lock screen: AI at work, two named sessions with live timers, one waiting for approval, AI working time today, the last 8 hours, activity, widgets, usage and battery" width="100%">
 </p>
+
+| | |
+|---|---|
+| <img src="images/lock-countdown.jpg" alt="Lock screen counting down to sleep" width="100%"><br>**Finish, then sleep** — a big countdown before the Mac sleeps; unlock or use Telegram to cancel. | <img src="images/lock-done.jpg" alt="Lock screen when every agent is done, with another account's agents" width="100%"><br>**All done** — every agent finished; other accounts on the Mac and their agents at a glance. |
+| <img src="images/lock-display2.jpg" alt="The full dashboard on a second display" width="100%"><br>**Second display** — no password field there: the whole screen is the dashboard. | <img src="images/menu.png" alt="Menu bar panel with today's AI working time" width="62%"><br>**Menu bar** — the same story in small: what the agents do now and how long AI worked today. |
+
+What it shows:
+
+- **Sessions by name** — titles instead of folder names, a live timer for each, and a warm glow on the one waiting for your approval.
+- **AI worked today** — how long your agents really worked (overlapping sessions count once, waiting for approval does not), split by Claude and Codex.
+- **The last 8 hours** — turns finished, new prompts, approvals asked, usage limits hit; then a live activity feed.
+- **A week of tokens** — a 7-day chart by agent.
+- **Widgets** — CPU with its last minutes, temperature, memory, network, today's tokens and answers; kept awake, fans, usage left and battery.
+- **Every display** — the main display keeps the password field clear; the others show the full view.
+- **The AI screen** — the same view in a window on any display, without locking (one button per display in the menu bar).
+- **Several macOS accounts** — each can share a summary of its AI work; the others see it here.
+- **Light on the battery** — only the clocks redraw every second; short animations on change, nothing that moves all night ([benchmark](docs/benchmark.md)).
+
+All pictures use sample data.
 
 ---
 
@@ -339,7 +371,7 @@ Every version is published for all three at once. Windows and Linux share one ap
 
 - **Local first.** Sessions, history and usage numbers stay in `~/Library/Application Support/AIOver9`.
 - **No account, no analytics.** Network only for what you turn on: your Telegram bot, *Exact numbers* (your Claude / ChatGPT usage), your Home Assistant / HTTP devices, update checks (GitHub).
-- **Anonymous install count** (Settings › General, on by default, can be turned off): once a day the app sends a random install id made on your computer, the app version, the system version and the chip type — nothing else (no names, projects, agents or usage). It shows how many computers use AI Over9 and which versions still need support.
+- **Anonymous install count** (always on, shown in Settings › General): once a day the app sends a random install id made on your computer, the app version, the system version and the chip type — nothing else (no names, projects, agents or usage). It shows how many computers use AI Over9 and which versions still need support.
 - **Secrets** (bot token, authenticator key, device tokens) live only in the Keychain — never in files, logs or backups.
 - **Agent content** leaves the computer only if you turn on *Dangerous actions*, and then only to your own Telegram chat, for the Owner. Otherwise only token counts are read from session files. Project names in messages are optional.
 - **Telegram:** paired people only, roles, confirmations, an authenticator code to write to agents; no shell commands, ever.
