@@ -46,6 +46,23 @@ vẽ lại. Giờ chỉ tính một lần khi có bản ghi mới hoặc sang ng
 **0.9.3** chỉ đọc các cảm biến nhiệt cho số hợp lệ: khi chạy nền, CPU trung bình giảm từ 1,4% xuống **1,1%** (trung vị
 0%, phân vị 95 là 5,1%). Khi mở cửa sổ, mức dùng nằm trong biên dao động giữa các lần đo (5–6%).
 
+### Màn hình khoá và màn hình AI (0.9.14)
+
+Đo trên MacBook dòng M (màn 14 inch, Retina), vẽ một khung hình ngoài màn hình bằng bản release
+(`MG_UI_LOCKCARD_BENCH=1`, dữ liệu mẫu, hai lần đo cùng kết quả):
+
+| Phần được vẽ | Thời gian mỗi khung |
+|---|---|
+| Toàn bộ giao diện tràn màn hình (nền, lớp nơ-ron, phiên, tiện ích) | **~24 ms** |
+| Một ô đồng hồ | **~0,13 ms** |
+
+**0.9.13** vẽ lại toàn bộ giao diện mỗi giây trên mọi màn hình: khoảng 24 ms mỗi giây cho màn MacBook, và khoảng 2,5
+lần như vậy cho màn 4K, chưa kể phần làm mờ và ghép hình của hệ thống. **0.9.14** chỉ vẽ lại các ô đồng hồ mỗi giây
+(khoảng 1 ms), lớp nơ-ron 6 giây một lần và số đo 5 giây một lần — ít hơn khoảng 15–20 lần. Hiệu ứng tuỳ chọn (xoay
+chậm lớp đã vẽ sẵn, một vệt sáng 2 điểm dưới phiên đang làm ở 12 khung hình/giây) tắt được trong Cài đặt › Màn hình khoá.
+
+Khi màn hình tắt, không có gì được vẽ: app đã cài đo được CPU trung bình 3,1% trong một phút lúc khoá máy (màn hình đang ngủ).
+
 ## Ý nghĩa
 
 - **Phần lớn thời gian AI Over9 chạy nền**, và khi đó tốn khoảng bằng một đồng hồ trên thanh menu: trung bình chừng 1%
