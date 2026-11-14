@@ -83,6 +83,8 @@ be hidden (*Include project folder names in messages*).
 | `/schedule`, `/automation`, `/run <name>` | Viewer · Operator | Schedules, allowed automations |
 | `/devices`, `/device <name> on/off` | Viewer · Operator | Smart devices |
 | `/unlock <code>`, `/lock` | Owner | Open / close chatting with agents |
+| `/confirm <code>` | Owner | Authenticator code for a risky command you allowed (see below) |
+| `/stt` · `/stt off` | Owner | Test speech to text: the next voice message only comes back as text |
 | `/new <folder> [claude/codex] <task>` | Owner | Start a new agent session in a folder inside the allowed parent |
 | `/users`, `/revoke` | Owner | People |
 | `/lang en` · `/lang vi`, `/help` | Viewer | Language, help |
@@ -165,7 +167,7 @@ tool already signed in on this computer is asked in read-only mode; it counts in
   and uncommitted changes of the session's project (about 20 KB at most; never `.env`, keys or certificates).
 - Owner only, same unlock as writing to agents. Saves the agents' usage: quick questions run on the light model.
 
-### Voice messages (macOS)
+### Voice messages
 
 **Settings › Dangerous actions › Let the Owner send voice messages to agent sessions** (off by default, needs agent
 chat). Turning it on downloads the speech model once (Whisper "small", about 190 MB, checked against its checksum).
@@ -175,6 +177,8 @@ chat). Turning it on downloads the speech model once (Whisper "small", about 190
 - The bot shows what it heard (`🎙️ Heard: «…»`), and the text goes to the session like a typed message.
 - Up to 5 minutes per message. Spoken language: detected automatically, or fixed to Vietnamese or English.
 - Same unlock as writing. The speech model can be deleted again in the same place.
+- `/stt` tests it: the next voice message (within 5 minutes) only comes back as text and goes to no agent — no unlock needed.
+- Windows and Linux: the same, where the computer can run it (x64 needs AVX2); otherwise the option is shown as not supported.
 
 ### Photos and files
 
@@ -203,6 +207,24 @@ message: as a reply to an answer, or to the session you picked.
 - At the computer, the agent's own prompt shows at once — Telegram is not asked.
 - Works for Claude Code and Codex. AI Over9 sets a longer wait on its own permission hook entry; Codex then asks you
   to trust the changed hook once.
+
+### Risky commands
+
+Pushing, publishing, deploying or deleting (`git push`, `make ship`, `npm publish`, `rm`, `git reset --hard`…) are
+**never** sent to the phone unless you also turn on **Also risky commands** (off by default, with a disclaimer). Then
+three steps, each checked on the computer:
+
+1. **✅ Allow** on the prompt (it shows the exact command and why it is risky).
+2. `/confirm <code>` with a fresh code from your authenticator app, within 2 minutes — a code already used (also the
+   `/unlock` code) does not count; wrong codes are rate-limited and never stored.
+3. **✅ Run it** on the message that shows the command once more.
+
+This switch only answers prompts an agent raises while it works. Whether a message from Telegram may *start* a
+release or a deploy is decided by the agent and its own rules; it may refuse until you allow it once at the computer —
+Settings shows a sentence you can copy for that.
+
+The **command shield** (Settings › Dangerous actions) works on the computer itself: deleting files and losing work in
+Git are refused before they run, pushing and publishing always ask first, and you can add your own commands.
 
 ## Session buttons and new sessions
 
