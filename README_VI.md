@@ -255,14 +255,17 @@ Mọi thao tác rủi ro đều cần bấm nút xác nhận, và quyền đư�
 
 ### Trên Mac
 
-- **Trạng thái trên màn hình khoá:** khi Mac khoá, một thẻ dưới đồng hồ hiện các agent đang làm, việc cần duyệt và đếm ngược trước khi ngủ.
+- **Màn hình khoá "ca đêm":** khi Mac khoá và agent đang làm, giao diện toàn màn hình hiện tiêu đề lớn (AI đang làm việc, hoặc đếm ngược tới lúc ngủ), từng phiên với phiên cần bạn được làm nổi bật, hoạt động gần đây (prompt mới, cần duyệt, xong lượt), giữ máy thức và quạt, hạn mức còn lại và pin — trên mọi màn hình, vẫn chừa ô nhập mật khẩu. Hiệu ứng ngắn khi mở và khi có thay đổi, không có gì chuyển động suốt đêm. Kiểu thẻ gọn vẫn chọn được (Cài đặt › Thông báo).
+- **Màn hình AI:** cùng giao diện đó trong một cửa sổ trên màn hình bạn chọn, không cần khoá máy — để theo dõi agent từ màn hình phụ. Bấm Esc để đóng.
+- **Nhiều tài khoản macOS trên một máy:** mỗi tài khoản có thể chia sẻ bản tóm tắt việc AI đang làm (agent, dự án, chờ duyệt, đếm ngược ngủ — không bao giờ có prompt hay code) và thấy của các tài khoản khác trên màn hình khoá và màn hình AI. Mặc định tắt. Một tài khoản không bao giờ cho máy ngủ khi agent của tài khoản khác đang chạy.
+- **Luôn chạy:** nếu AI Over9 bị kill hoặc gặp lỗi, macOS mở lại sau vài giây (bấm Thoát vẫn thoát). Mỗi phút app kiểm tra hook của agent còn trỏ về app không, nếu bị đổi thì tự trỏ lại.
 - **App trên thanh menu:** khi thanh menu đầy hoặc bị tai thỏ che, bảng điều khiển liệt kê biểu tượng của mọi app và mở được từng cái. **⌥⌘9** (đổi được) mở bảng điều khiển từ bất cứ đâu.
 - **Quạt:** đọc mọi quạt; với một helper nhỏ (cài một lần bằng mật khẩu quản trị) có thể đặt tốc độ cố định, làm mát ngay, tự làm mát và lưu cấu hình. Quạt tự về Tự động khi thoát app, khi nhiệt độ cao, hoặc khi app không phản hồi.
 - **Claude Remote Control:** một công tắc cho mọi phiên Claude Code mới, để làm tiếp từ claude.ai hoặc app Claude.
 - **Tự động hoá, lịch, chế độ nguồn** (Chế độ nâng cao), **Home Assistant và thiết bị HTTP**, **hệ thống và dung lượng**, **sao lưu và khôi phục**.
 
 <p align="center">
-  <img src="images/lock-screen.png" alt="Thẻ trên màn hình khoá: Claude Code và Codex đang làm việc" width="560">
+  <img src="images/lock-screen-vi.jpg" alt="Màn hình khoá ca đêm: AI đang làm việc, hai phiên trong đó một phiên cần duyệt, tài khoản khác trên máy, hoạt động gần đây, hạn mức và pin" width="860">
   <br><sub>Khi Mac khoá: agent nào đang làm, agent nào cần bạn.</sub>
 </p>
 
@@ -276,14 +279,16 @@ Mỗi phiên bản được phát hành cho cả ba cùng lúc. Windows và Linu
 |---|---|---|
 | Hook Claude Code và Codex | ✅ | ✅ |
 | Chat với agent qua Telegram, tiếp tục khi hết hạn mức | ✅ | ✅ ¹ |
+| Duyệt yêu cầu cấp quyền từ Telegram, lá chắn lệnh, skill commit thường xuyên | ✅ | ✅ ¹ |
+| Chat nhanh (/ask), tin nhắn thoại, Có gì mới và Góp ý | ✅ | ✅ ¹ |
 | Giữ thức, Xong việc rồi ngủ | ✅ ngủ | ✅ tắt máy, ngủ đông hoặc ngủ |
 | Hạn mức và lượng token | ✅ | ✅ |
 | Điều khiển và thông báo qua Telegram | ✅ đầy đủ lệnh | ✅ các lệnh chính |
 | Agent khác qua danh sách tiến trình | ✅ | — |
-| Quạt, thẻ màn hình khoá, app thanh menu, tự động hoá, thiết bị | ✅ | — |
+| Quạt, màn hình khoá và màn hình AI, chia sẻ giữa tài khoản, app thanh menu, tự động hoá, thiết bị | ✅ | — |
 | Tự cập nhật có chữ ký | ✅ | ✅ |
 
-¹ Chưa kiểm chứng trên máy Windows / Linux thật: tin gửi cho phiên đang mở có thể phải chờ tới khi xong lượt hiện tại.
+¹ Chưa kiểm chứng trên máy Windows / Linux thật: tin gửi cho phiên đang mở có thể phải chờ tới khi xong lượt hiện tại; tin nhắn thoại cần bộ xử lý có AVX2 (x64), nếu không sẽ hiện là không hỗ trợ.
 
 <p align="center">
   <img src="images/shot-windows.jpg" alt="AI Over9 trên Windows" width="860">
