@@ -72,7 +72,10 @@ thư mục dự án trong tin nhắn*).
 |---|---|---|
 | `/status`, `/menu` | Người xem | Tổng quan kèm nút bấm |
 | `/why` | Người xem | Vì sao máy đang thức, còn gì chặn máy ngủ |
-| `/agents`, `/sessions` | Người xem | Agent và các phiên |
+| `/agents` | Người xem | Agent |
+| `/current_sessions` | Người xem | Chỉ các phiên đang mở |
+| `/sessions` · `/sessions all` · `/sessions <từ khoá>` | Người xem | Tất cả các phiên: phiên đang mở trước, rồi phiên đã xong và cũ hơn (hội thoại cũ: Chủ sở hữu) · thêm nữa · tìm |
+| `/session_project <thư mục>` | Người xem | Các phiên của một dự án (không ghi tên: chọn bằng nút) |
 | `/usage`, `/reset` | Người xem | Hạn mức gói, giờ làm mới, token |
 | `/awake` · `/awake 30` · `/awake off` | Người xem · Vận hành | Trạng thái · giữ thức thêm 30 phút · tắt |
 | `/sleep`, `/cancel` | Vận hành | Cho ngủ sau khi kiểm tra và đếm ngược · huỷ |
@@ -85,6 +88,9 @@ thư mục dự án trong tin nhắn*).
 | `/unlock <mã>`, `/lock` | Chủ sở hữu | Mở / khoá chat với agent |
 | `/confirm <mã>` | Chủ sở hữu | Mã Authenticator cho lệnh nguy hiểm bạn đã cho phép (xem bên dưới) |
 | `/stt` · `/stt off` | Chủ sở hữu | Thử chuyển giọng nói thành chữ: tin thoại kế tiếp chỉ trả lại chữ |
+| `/testapproval` · `/testapproval risky` | Chủ sở hữu | Yêu cầu duyệt mẫu với đúng các bước như yêu cầu thật; bấm gì cũng không có gì chạy |
+| `/open` · `/open <tên>` | Vận hành | Mở một app trong danh sách đã chọn trên Mac (Cài đặt › Hành động nguy hiểm › App Telegram được mở) |
+| `/lockscreen` | Chủ sở hữu | Khoá màn hình Mac sau khi xác nhận; mở khoá chỉ làm được tại máy |
 | `/new <thư mục> [claude/codex] <việc>` | Chủ sở hữu | Mở phiên agent mới trong thư mục nằm trong thư mục cha được phép |
 | `/users`, `/revoke` | Chủ sở hữu | Người dùng |
 | `/lang en` · `/lang vi`, `/help` | Người xem | Ngôn ngữ, trợ giúp |
@@ -200,7 +206,7 @@ nhắn: reply một câu trả lời, hoặc gửi vào phiên bạn đã chọn
 
 **Cài đặt › Hành động nguy hiểm › Duyệt yêu cầu cấp quyền của agent từ Telegram** (cần bật chat với agent).
 
-- Khi không ai dùng máy (1–10 phút, tuỳ bạn chọn), yêu cầu cấp quyền của agent — chạy lệnh, sửa file… — được gửi kèm
+- Yêu cầu cấp quyền của agent (cả khi bạn đang dùng máy — khi đó chỉ chờ Telegram 1–10 phút tuỳ bạn chọn, rồi agent hỏi trên máy) — chạy lệnh, sửa file… — được gửi kèm
   agent, dự án, tiêu đề phiên và đúng câu lệnh, cùng nút **✅ Cho phép / ❌ Từ chối**.
 - Chỉ Chủ sở hữu, khi đang mở khoá. Bấm nút lúc đang khoá thì bot yêu cầu `/unlock` rồi gửi lại nút.
 - Không có trả lời trong khoảng 14 phút → không cho phép gì; agent hỏi trên máy như thường.
@@ -228,7 +234,10 @@ khi chạy, push và phát hành luôn phải hỏi trước, và bạn có th�
 
 ## Nút theo phiên và mở phiên mới
 
-- `/sessions` đánh số các phiên và thêm nút cho Chủ sở hữu ở mọi phiên Claude Code và Codex, kể cả phiên đã xong (sẽ
+- Ba cách xem: `/current_sessions` (chỉ phiên đang mở), `/sessions` (tất cả — với Chủ sở hữu có cả hội thoại cũ trong
+  lịch sử Claude Code và Codex trên máy, để chọn và làm tiếp một phiên đã xong từ nhiều ngày trước; `/sessions all` hiện
+  thêm, `/sessions <từ khoá>` tìm theo tên phiên hoặc dự án) và `/session_project <thư mục>`.
+- Mỗi danh sách đánh số các phiên và thêm nút cho Chủ sở hữu ở mọi phiên Claude Code và Codex, kể cả phiên đã xong (sẽ
   chạy tiếp ở nền): **💬 Nhắn #n** chọn phiên nhận tin, ảnh và file tiếp theo (gõ `/sessions n` cũng được),
   **📄 Thay đổi #n** xem thay đổi chưa commit của dự án (`git diff --stat`, chỉ đọc), **⏹ #n** dừng lượt hiện tại của
   phiên Codex đang mở trong cửa sổ (cần mở khoá). Phiên đang chọn được đánh dấu 👈 trong danh sách.
