@@ -83,6 +83,8 @@ thư mục dự án trong tin nhắn*).
 | `/schedule`, `/automation`, `/run <tên>` | Người xem · Vận hành | Lịch, tự động hoá được phép |
 | `/devices`, `/device <tên> on/off` | Người xem · Vận hành | Thiết bị thông minh |
 | `/unlock <mã>`, `/lock` | Chủ sở hữu | Mở / khoá chat với agent |
+| `/confirm <mã>` | Chủ sở hữu | Mã Authenticator cho lệnh nguy hiểm bạn đã cho phép (xem bên dưới) |
+| `/stt` · `/stt off` | Chủ sở hữu | Thử chuyển giọng nói thành chữ: tin thoại kế tiếp chỉ trả lại chữ |
 | `/new <thư mục> [claude/codex] <việc>` | Chủ sở hữu | Mở phiên agent mới trong thư mục nằm trong thư mục cha được phép |
 | `/users`, `/revoke` | Chủ sở hữu | Người dùng |
 | `/lang en` · `/lang vi`, `/help` | Người xem | Ngôn ngữ, trợ giúp |
@@ -165,7 +167,7 @@ công cụ đã đăng nhập trên máy ở chế độ chỉ đọc; tính và
   chưa commit của dự án (tối đa khoảng 20 KB; không bao giờ có `.env`, khoá hay chứng chỉ).
 - Chỉ Chủ sở hữu, dùng chung lần mở khoá với nhắn vào agent. Tiết kiệm hạn mức agent: câu hỏi nhanh chạy trên model nhẹ.
 
-### Tin nhắn thoại (macOS)
+### Tin nhắn thoại
 
 **Cài đặt › Hành động nguy hiểm › Cho Chủ sở hữu gửi tin nhắn thoại vào phiên agent** (mặc định tắt, cần bật chat với
 agent). Khi bật, app tải mô hình nhận dạng giọng nói một lần (Whisper "small", khoảng 190 MB, có kiểm tra checksum).
@@ -175,6 +177,8 @@ agent). Khi bật, app tải mô hình nhận dạng giọng nói một lần (W
 - Bot báo lại những gì đã nghe (`🎙️ Đã nghe: «…»`), rồi chữ được gửi vào phiên như tin nhắn gõ.
 - Tối đa 5 phút mỗi tin. Ngôn ngữ nói: tự nhận biết, hoặc cố định Tiếng Việt / English.
 - Dùng chung lần mở khoá với nhắn tin. Có thể xoá mô hình ở cùng chỗ.
+- `/stt` để thử: tin thoại kế tiếp (trong 5 phút) chỉ trả lại chữ, không gửi cho agent nào — không cần mở khoá.
+- Windows và Linux: tương tự, trên máy chạy được (x64 cần AVX2); nếu không, tuỳ chọn hiện là không hỗ trợ.
 
 ### Ảnh và file
 
@@ -203,6 +207,24 @@ nhắn: reply một câu trả lời, hoặc gửi vào phiên bạn đã chọn
 - Đang ngồi máy thì hộp thoại của agent hiện ngay — không hỏi qua Telegram.
 - Dùng được cho Claude Code và Codex. AI Over9 tăng thời gian chờ cho mục hook duyệt quyền của chính nó; Codex sẽ hỏi
   bạn duyệt lại hook đã đổi một lần.
+
+### Lệnh nguy hiểm
+
+Push, phát hành, deploy hay xoá (`git push`, `make ship`, `npm publish`, `rm`, `git reset --hard`…) **không bao giờ**
+được gửi lên điện thoại, trừ khi bạn bật thêm **Cả lệnh nguy hiểm** (mặc định tắt, có lời miễn trừ trách nhiệm). Khi đó
+phải qua ba bước, bước nào cũng được kiểm tra trên máy:
+
+1. **✅ Cho phép** trên yêu cầu (hiện đúng câu lệnh và lý do nguy hiểm).
+2. `/confirm <mã>` với mã mới từ app Authenticator trong 2 phút — mã đã dùng (kể cả mã `/unlock`) không được tính; nhập
+   sai bị giới hạn số lần và mã không bao giờ được lưu.
+3. **✅ Chạy lệnh này** trên tin hiện lại câu lệnh một lần nữa.
+
+Công tắc này chỉ duyệt các yêu cầu agent đưa ra trong lúc làm việc. Tin từ Telegram có được *bắt đầu* việc phát hành
+hay deploy hay không là do agent và quy tắc của nó quyết định; agent có thể từ chối cho tới khi bạn cho phép một lần
+ngay tại máy — Cài đặt có câu mẫu để bạn sao chép.
+
+**Lá chắn lệnh** (Cài đặt › Hành động nguy hiểm) chạy ngay trên máy: chặn xoá file và làm mất thay đổi trong Git trước
+khi chạy, push và phát hành luôn phải hỏi trước, và bạn có thể thêm lệnh riêng.
 
 ## Nút theo phiên và mở phiên mới
 
