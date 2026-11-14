@@ -179,6 +179,8 @@ Full guide: [Telegram › Chatting with your agents](docs/telegram.md#chatting-w
 Claude Code and Codex arrive with **Allow / Deny**. No answer → the agent asks on the computer; nothing is ever approved
 by itself.
 
+**Quick chat** *(optional, macOS)*: `/ask <question>` asks a light model (ChatGPT, Claude, Gemini, OpenRouter, DeepSeek, Ollama…); `/ask done` turns the chat into a task that one button hands to an agent session — the agents' usage goes to the work.
+
 **Voice messages** *(optional, macOS)*: speak your request on Telegram; it is turned into text on your computer (the audio never leaves it) and goes to the session.
 
 **Photos and files** *(optional, Settings › Dangerous actions)*: send a screenshot or a document with your request as
