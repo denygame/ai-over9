@@ -157,6 +157,7 @@ công cụ đã đăng nhập trên máy ở chế độ chỉ đọc; tính và
 - `/ask done` chuyển cuộc chat thành **việc cần làm** (mục tiêu, điều đã thống nhất, tiêu chí xong) kèm nút **Giao cho <phiên>** —
   bấm một lần là gửi vào phiên như tin nhắn gõ; agent tự lên kế hoạch chi tiết. `/new <thư mục> [claude|codex]` không
   kèm nội dung sẽ mở phiên mới với việc đó.
+- Mỗi model hay dùng còn có lệnh riêng trong menu "/" — `/ask_haiku`, `/ask_gpt_6_luna`… — nên gõ `/ask` là thấy danh sách.
 - `/ask @model <câu hỏi>` dùng model đó cho cuộc chat này (vd. `/ask @sonnet …`); `/ask models` hiện các model hay
   dùng thành nút bấm (đặt trong Cài đặt, hoặc danh sách của dịch vụ).
 - `/ask off` để dừng, `/ask reset` để xoá hội thoại.
