@@ -35,7 +35,7 @@ Agent AI giờ làm việc hàng giờ liền, nhiều phiên, nhiều dự án 
 | 📊 **Nắm rõ hạn mức** | Hạn mức 5 giờ và theo tuần bằng số thật từ tài khoản Claude và ChatGPT; cảnh báo trước khi chạm ngưỡng; tuỳ chọn tự chạy tiếp phiên bị dừng khi hạn mức phục hồi. |
 | 📱 **Mọi thứ qua Telegram** | Trạng thái, phiên, hạn mức, giữ thức, cho ngủ, quạt, tự động hoá — có phân quyền và nút xác nhận. Không bao giờ chạy lệnh shell. |
 
-Mọi thứ chạy trên máy bạn. Không tài khoản, không analytics — chỉ có lượt đếm cài đặt ẩn danh mỗi ngày, tắt được.
+Mọi thứ chạy trên máy bạn. Không tài khoản, không analytics — chỉ có lượt đếm cài đặt ẩn danh mỗi ngày (xem [Quyền riêng tư](#quyền-riêng-tư-và-bảo-mật)).
 
 <p align="center">
   <img src="images/demo-telegram.gif" alt="Demo: ba phiên agent trên Mac, một cuộc chat Telegram nhận câu trả lời và gửi tin reply vào đúng từng phiên" width="860">
@@ -59,6 +59,7 @@ Mọi thứ chạy trên máy bạn. Không tài khoản, không analytics — c
 - [Quản lý nhiều agent, nhiều phiên qua Telegram](#quản-lý-nhiều-agent-nhiều-phiên-qua-telegram)
 - [Lệnh Telegram](#lệnh-telegram)
 - [Tính năng](#tính-năng)
+- [Màn hình khoá](#màn-hình-khoá)
 - [macOS, Windows và Linux](#macos-windows-và-linux)
 - [Cài đặt chi tiết](#cài-đặt-chi-tiết)
 - [Cập nhật](#cập-nhật)
@@ -176,8 +177,9 @@ Hướng dẫn đầy đủ: [Telegram › Chat với agent](docs/telegram.vi.md
 
 **Câu trả lời trên điện thoại** giữ nguyên định dạng: chữ đậm, danh sách, link, khối code, và bảng (hiển thị thành các cột thẳng hàng). Câu trả lời quá dài được rút gọn, có ghi chú.
 
-**Duyệt từ điện thoại** *(tuỳ chọn, Cài đặt › Hành động nguy hiểm)*: khi bạn vắng máy, yêu cầu cấp quyền của Claude Code
-và Codex được gửi kèm nút **Cho phép / Từ chối**. Không có trả lời → agent hỏi trên máy; không bao giờ tự cho phép.
+**Duyệt từ điện thoại** *(tuỳ chọn, Cài đặt › Hành động nguy hiểm)*: yêu cầu cấp quyền của Claude Code và Codex được gửi kèm
+nút **Cho phép / Từ chối** — cả khi bạn đang ngồi ở máy (khi đó chỉ chờ điện thoại một lúc ngắn, mặc định 2 phút, rồi
+agent hỏi trên máy). Không có trả lời → agent hỏi trên máy; không bao giờ tự cho phép.
 
 **Chat nhanh** *(tuỳ chọn, macOS)*: `/ask <câu hỏi>` hỏi model nhẹ (ChatGPT, Claude, Gemini, OpenRouter, DeepSeek, Ollama…); `/ask done` chuyển cuộc chat thành việc cần làm, một nút giao cho phiên agent — hạn mức của agent dành cho việc làm.
 
@@ -186,7 +188,8 @@ và Codex được gửi kèm nút **Cho phép / Từ chối**. Không có trả
 **Ảnh và file** *(tuỳ chọn, Cài đặt › Hành động nguy hiểm)*: gửi ảnh chụp màn hình hay tài liệu, ghi yêu cầu ở phần chú
 thích; file được lưu trong dự án của phiên (không lẫn vào git) và agent tự mở ra xem.
 
-**Nút theo phiên và giao việc mới:** `/sessions` đánh số các phiên kèm nút để chọn phiên nhận tin tiếp theo (hoặc gõ
+**Nút theo phiên và giao việc mới:** `/current_sessions` (chỉ phiên đang mở), `/sessions` (tất cả, kể cả hội thoại cũ
+trong lịch sử Claude Code và Codex, để làm tiếp một phiên đã xong từ nhiều ngày trước) và `/session_project <thư mục>` đánh số các phiên kèm nút để chọn phiên nhận tin tiếp theo (hoặc gõ
 `/sessions 3`), xem thay đổi chưa commit của dự án, hoặc dừng lượt của Codex. `/new <thư mục> <việc>` mở phiên mới trong
 một thư mục nằm trong thư mục cha bạn đã chọn — chưa có thì tạo, không bao giờ ra ngoài.
 
@@ -207,11 +210,13 @@ một thư mục nằm trong thư mục cha bạn đã chọn — chưa có thì
 |---|---|
 | `/status`, `/menu` | Tổng quan kèm nút bấm nhanh |
 | `/why` | Vì sao máy đang thức, còn gì chặn máy ngủ |
-| `/agents`, `/sessions` | Agent và các phiên |
+| `/agents`, `/current_sessions`, `/sessions`, `/session_project <thư mục>` | Agent; phiên đang mở, tất cả các phiên (cả phiên cũ), các phiên của một dự án |
 | `/usage`, `/reset` | Hạn mức gói, giờ làm mới, lượng token |
 | `/awake`, `/awake 30`, `/awake off` | Trạng thái giữ thức, giữ thêm N phút, tắt |
 | `/sleep`, `/cancel` | Yêu cầu cho máy ngủ (kiểm tra an toàn, đếm ngược), huỷ |
 | `/unlock <mã>`, `/lock` | Mở / khoá việc nhắn cho agent (Chủ sở hữu, mã Authenticator) |
+| `/testapproval` | Yêu cầu duyệt mẫu, đúng các bước như yêu cầu thật — không có gì chạy (Chủ sở hữu) |
+| `/open`, `/lockscreen` | Mở một app trong danh sách đã chọn trên Mac (Vận hành) · khoá màn hình; mở khoá chỉ tại máy (Chủ sở hữu) |
 | `/new <thư mục> [claude/codex] <việc>` | Mở phiên mới trong thư mục nằm trong thư mục cha được phép (Chủ sở hữu, đã mở khoá) |
 | `/fans`, `/fans auto`, `/fans cool`, `/fans set <1/2/all> <rpm>` | Quạt: trạng thái, Tự động, làm mát ngay, tốc độ cố định (Chủ sở hữu, nếu cho phép) |
 | `/mission`, `/missions`, `/report` | Việc của đêm nay và báo cáo |
@@ -255,8 +260,9 @@ Mọi thao tác rủi ro đều cần bấm nút xác nhận, và quyền đư�
 
 ### Trên Mac
 
-- **Màn hình khoá "ca đêm":** khi Mac khoá và agent đang làm, giao diện toàn màn hình hiện tiêu đề lớn (AI đang làm việc, hoặc đếm ngược tới lúc ngủ), từng phiên với phiên cần bạn được làm nổi bật, hoạt động gần đây (prompt mới, cần duyệt, xong lượt), giữ máy thức và quạt, hạn mức còn lại và pin — trên mọi màn hình, vẫn chừa ô nhập mật khẩu. Hiệu ứng ngắn khi mở và khi có thay đổi, không có gì chuyển động suốt đêm. Kiểu thẻ gọn vẫn chọn được (Cài đặt › Thông báo).
-- **Màn hình AI:** cùng giao diện đó trong một cửa sổ trên màn hình bạn chọn, không cần khoá máy — để theo dõi agent từ màn hình phụ. Bấm Esc để đóng.
+- **Màn hình khoá "ca đêm":** khi Mac khoá và agent đang làm, giao diện toàn màn hình hiện tiêu đề lớn (AI đang làm việc, hoặc đếm ngược tới lúc ngủ), từng phiên với phiên cần bạn được làm nổi bật, hoạt động gần đây (prompt mới, cần duyệt, xong lượt), giữ máy thức và quạt, hạn mức còn lại và pin — trên mọi màn hình, vẫn chừa ô nhập mật khẩu. Hiệu ứng ngắn khi mở và khi có thay đổi, không có gì chuyển động suốt đêm. Kiểu thẻ gọn vẫn chọn được (Cài đặt › Màn hình khoá và màn hình AI).
+- **AI đã làm việc hôm nay:** các agent đã làm bao lâu trong ngày — nhiều phiên chạy cùng lúc chỉ tính một lần, thời gian chờ duyệt không tính — chia theo Claude / Codex, ở đầu bảng menu bar, trên màn hình khoá và màn hình AI.
+- **Màn hình AI:** cùng giao diện đó trong một cửa sổ trên màn hình bạn chọn, không cần khoá máy — để theo dõi agent từ màn hình phụ: mỗi màn hình một nút trên thanh menu. Bấm Esc để đóng.
 - **Nhiều tài khoản macOS trên một máy:** mỗi tài khoản có thể chia sẻ bản tóm tắt việc AI đang làm (agent, dự án, chờ duyệt, đếm ngược ngủ — không bao giờ có prompt hay code) và thấy của các tài khoản khác trên màn hình khoá và màn hình AI. Mặc định tắt. Một tài khoản không bao giờ cho máy ngủ khi agent của tài khoản khác đang chạy.
 - **Luôn chạy:** nếu AI Over9 bị kill hoặc gặp lỗi, macOS mở lại sau vài giây (bấm Thoát vẫn thoát). Mỗi phút app kiểm tra hook của agent còn trỏ về app không, nếu bị đổi thì tự trỏ lại.
 - **App trên thanh menu:** khi thanh menu đầy hoặc bị tai thỏ che, bảng điều khiển liệt kê biểu tượng của mọi app và mở được từng cái. **⌥⌘9** (đổi được) mở bảng điều khiển từ bất cứ đâu.
@@ -264,10 +270,34 @@ Mọi thao tác rủi ro đều cần bấm nút xác nhận, và quyền đư�
 - **Claude Remote Control:** một công tắc cho mọi phiên Claude Code mới, để làm tiếp từ claude.ai hoặc app Claude.
 - **Tự động hoá, lịch, chế độ nguồn** (Chế độ nâng cao), **Home Assistant và thiết bị HTTP**, **hệ thống và dung lượng**, **sao lưu và khôi phục**.
 
+---
+
+## Màn hình khoá
+
+Khoá Mac khi agent đang làm, màn hình chuyển thành một **dashboard ca đêm** — đứng xa vẫn đọc được, đủ dịu để bật suốt đêm.
+
 <p align="center">
-  <img src="images/lock-screen-vi.jpg" alt="Màn hình khoá ca đêm: AI đang làm việc, hai phiên trong đó một phiên cần duyệt, tài khoản khác trên máy, hoạt động gần đây, hạn mức và pin" width="860">
-  <br><sub>Khi Mac khoá: agent nào đang làm, agent nào cần bạn.</sub>
+  <img src="images/lock-screen-vi.jpg" alt="Màn hình khoá ca đêm: AI đang làm việc, hai phiên có tên và đồng hồ, một phiên chờ duyệt, thời gian AI làm việc hôm nay, 8 giờ qua, hoạt động, tiện ích, hạn mức và pin" width="100%">
 </p>
+
+| | |
+|---|---|
+| <img src="images/lock-countdown-vi.jpg" alt="Màn hình khoá đếm ngược trước khi ngủ" width="100%"><br>**Xong việc rồi ngủ** — đồng hồ đếm ngược thật lớn trước khi Mac ngủ; mở khoá hoặc dùng Telegram để huỷ. | <img src="images/lock-done-vi.jpg" alt="Màn hình khoá khi mọi agent đã xong, kèm agent của tài khoản khác" width="100%"><br>**Đã xong hết** — mọi agent đã xong; tài khoản khác trên máy và agent của họ, nhìn là thấy. |
+| <img src="images/lock-display2-vi.jpg" alt="Dashboard đầy đủ trên màn hình phụ" width="100%"><br>**Màn hình phụ** — không có ô mật khẩu: cả màn hình là dashboard. | <img src="images/menu-vi.png" alt="Bảng menu bar với thời gian AI làm việc hôm nay" width="62%"><br>**Thanh menu** — cùng câu chuyện, gọn hơn: agent đang làm gì và AI đã làm bao lâu hôm nay. |
+
+Màn hình hiện gì:
+
+- **Phiên theo tên** — tên phiên thay cho tên thư mục, đồng hồ cho từng phiên, vầng sáng ấm trên phiên đang chờ bạn duyệt.
+- **AI đã làm việc hôm nay** — các agent thật sự đã làm bao lâu (nhiều phiên cùng lúc chỉ tính một lần, thời gian chờ duyệt không tính), chia theo Claude và Codex.
+- **8 giờ qua** — lượt đã xong, prompt mới, lần cần duyệt, lần hết hạn mức; rồi dòng hoạt động trực tiếp.
+- **Một tuần token** — biểu đồ 7 ngày theo agent.
+- **Tiện ích** — CPU kèm mấy phút gần nhất, nhiệt độ, RAM, mạng, token và phản hồi hôm nay; giữ thức, quạt, hạn mức còn lại và pin.
+- **Mọi màn hình** — màn hình chính chừa ô mật khẩu; các màn hình khác hiện đầy đủ.
+- **Màn hình AI** — cùng giao diện trong một cửa sổ trên màn hình bất kỳ, không cần khoá máy (mỗi màn hình một nút trên thanh menu).
+- **Nhiều tài khoản macOS** — mỗi tài khoản có thể chia sẻ bản tóm tắt việc AI đang làm; các tài khoản khác thấy ở đây.
+- **Nhẹ pin** — chỉ đồng hồ vẽ lại mỗi giây; hiệu ứng ngắn khi có thay đổi, không có gì chuyển động suốt đêm ([benchmark](docs/benchmark.vi.md)).
+
+Mọi ảnh đều dùng dữ liệu mẫu.
 
 ---
 
@@ -327,7 +357,7 @@ Mỗi phiên bản được phát hành cho cả ba cùng lúc. Windows và Linu
 
 - **Ưu tiên cục bộ.** Phiên, lịch sử và số liệu sử dụng nằm trong `~/Library/Application Support/AIOver9`.
 - **Không tài khoản, không analytics.** Chỉ dùng mạng cho những gì bạn bật: bot Telegram của bạn, *Số chính xác* (hạn mức Claude / ChatGPT), Home Assistant / thiết bị HTTP của bạn, kiểm tra cập nhật (GitHub).
-- **Đếm lượt cài ẩn danh** (Cài đặt › Chung, mặc định bật, tắt được): mỗi ngày một lần app gửi một mã cài đặt ngẫu nhiên tạo trên máy bạn, phiên bản app, phiên bản hệ điều hành và loại chip — không gì khác (không tên, dự án, agent hay số liệu sử dụng). Nhờ vậy biết có bao nhiêu máy dùng AI Over9 và phiên bản nào còn cần hỗ trợ.
+- **Đếm lượt cài ẩn danh** (luôn bật, có ghi trong Cài đặt › Chung): mỗi ngày một lần app gửi một mã cài đặt ngẫu nhiên tạo trên máy bạn, phiên bản app, phiên bản hệ điều hành và loại chip — không gì khác (không tên, dự án, agent hay số liệu sử dụng). Nhờ vậy biết có bao nhiêu máy dùng AI Over9 và phiên bản nào còn cần hỗ trợ.
 - **Bí mật** (token bot, khoá Authenticator, token thiết bị) chỉ nằm trong Keychain — không bao giờ có trong file, log hay bản sao lưu.
 - **Nội dung của agent** chỉ rời khỏi máy khi bạn bật *Hành động nguy hiểm*, và chỉ tới chat Telegram của chính bạn, cho Chủ sở hữu. Ngoài ra chỉ đọc số token từ file phiên. Tên dự án trong tin nhắn có thể ẩn.
 - **Telegram:** chỉ người đã ghép nối, có phân quyền, có nút xác nhận, cần mã Authenticator để nhắn cho agent; không bao giờ chạy lệnh shell.
