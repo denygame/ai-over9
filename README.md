@@ -267,15 +267,18 @@ Every risky action asks for a confirmation button, and permissions are checked a
 
 ### On the Mac
 
-- **Lock screen status:** while the Mac is locked, a card under the clock shows working agents, approvals needed and the sleep countdown.
+- **Night-shift lock screen:** while the Mac is locked and agents work, a full-screen view shows a large headline (AI at work, or the countdown to sleep), each session with the one that needs you lit up, recent activity (new prompts, approvals, finished turns), kept awake and fans, usage left and battery — on every display, with the password field left clear. Short opening and change animations, nothing that moves all night. The compact card is still available (Settings › Notifications).
+- **AI screen:** the same view in a window on any display you choose, without locking — to keep an eye on the agents from a second screen. Esc closes it.
+- **Several macOS accounts on one Mac:** each account can share a summary of its AI work (agents, projects, approvals, sleep countdown — never prompts or code) and sees the others' on its lock screen and AI screen. Off by default. One account never puts the Mac to sleep under another account's running agents.
+- **Keeps running:** if AI Over9 is killed or crashes, macOS opens it again within seconds (Quit still quits). Every minute it checks that the agents' hooks still point to it and puts them back if something changed them.
 - **Menu bar apps:** when the menu bar is full or behind the notch, the panel lists every app's icon and opens any of them. **⌥⌘9** (changeable) opens the panel from anywhere.
 - **Fans:** read every fan; with a small helper (installed once with your password) set constant speeds, cool now, auto-cool and saved profiles. Fans return to Automatic on quit, on high temperature and if the app stops responding.
 - **Claude Remote Control:** one switch for every new Claude Code session, to continue it from claude.ai or the Claude app.
 - **Automations, schedules, power modes** (Advanced mode), **Home Assistant and HTTP devices**, **system and storage** views, **backup and restore**.
 
 <p align="center">
-  <img src="images/lock-screen.png" alt="Lock screen card: Claude Code and Codex working" width="560">
-  <br><sub>While the Mac is locked: who is working, and who needs you.</sub>
+  <img src="images/lock-screen.jpg" alt="Night-shift lock screen: AI at work, two sessions with one needing approval, another account on the Mac, recent activity, usage and battery" width="860">
+  <br><sub>While the Mac is locked: who is working, who needs you, and what just happened (sample data).</sub>
 </p>
 
 ---
@@ -288,14 +291,16 @@ Every version is published for all three at once. Windows and Linux share one ap
 |---|---|---|
 | Claude Code and Codex hooks | ✅ | ✅ |
 | Chat with agents from Telegram, continue after a limit | ✅ | ✅ ¹ |
+| Approve permission prompts from Telegram, command shield, commit-often skill | ✅ | ✅ ¹ |
+| Quick chat (/ask), voice messages, What's new and Feedback | ✅ | ✅ ¹ |
 | Keep awake, Finish then sleep | ✅ sleep | ✅ shut down, hibernate or sleep |
 | Usage limits and token totals | ✅ | ✅ |
 | Telegram remote and notifications | ✅ full command set | ✅ core commands |
 | Other agents from the process list | ✅ | — |
-| Fans, lock screen card, menu bar apps, automations, devices | ✅ | — |
+| Fans, lock screen and AI screen, accounts sharing, menu bar apps, automations, devices | ✅ | — |
 | Signed automatic updates | ✅ | ✅ |
 
-¹ Not yet verified on real Windows / Linux machines: a message for an open session may wait until its current turn ends.
+¹ Not yet verified on real Windows / Linux machines: a message for an open session may wait until its current turn ends; voice messages need a processor with AVX2 (x64) and are shown as not supported otherwise.
 
 <p align="center">
   <img src="images/shot-windows.jpg" alt="AI Over9 for Windows" width="860">
