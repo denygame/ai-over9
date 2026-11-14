@@ -178,6 +178,18 @@ Full guide: [Telegram › Chatting with your agents](docs/telegram.md#chatting-w
 **Approve from your phone** *(optional, Settings › Dangerous actions)*: while you are away, permission prompts of
 Claude Code and Codex arrive with **Allow / Deny**. No answer → the agent asks on the computer; nothing is ever approved
 by itself.
+Risky commands (push, publish, deploy, deleting files) are never sent to the phone unless you turn on a separate
+switch (off by default, with a disclaimer); then they need **Allow**, a fresh authenticator code (`/confirm`) and one
+more confirmation of the exact command.
+
+**Command shield** *(optional, macOS, Claude Code)*: commands that delete files or lose work in Git (`rm`,
+`git reset --hard`, `git clean`, `git push --force`…) are refused before they run, and commands that leave the computer
+(`git push`, `gh release`, `npm publish`, deploy…) always ask first. Turn the built-in groups on or off, add your own
+commands to block, ask about or allow, and try a command to see what would happen. It reads the command line, so what a
+script does inside is not seen — keep your work committed.
+
+**"Commit often" skill** *(optional, Claude Code and Codex)*: the agent commits each finished step locally and sets up
+Git in projects that have none, so every change can be restored. It never pushes on its own.
 
 **Quick chat** *(optional, macOS)*: `/ask <question>` asks a light model (ChatGPT, Claude, Gemini, OpenRouter, DeepSeek, Ollama…); `/ask done` turns the chat into a task that one button hands to an agent session — the agents' usage goes to the work.
 
