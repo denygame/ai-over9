@@ -146,6 +146,17 @@ khởi động lại. `/lock` để khoá.
 Nếu có gì không chạy được (ví dụ thiếu công cụ dòng lệnh của agent), bot nói rõ lý do — tin không bao giờ bị bỏ qua
 trong im lặng.
 
+### Tin nhắn thoại (macOS)
+
+**Cài đặt › Hành động nguy hiểm › Cho Chủ sở hữu gửi tin nhắn thoại vào phiên agent** (mặc định tắt, cần bật chat với
+agent). Khi bật, app tải mô hình nhận dạng giọng nói một lần (Whisper "small", khoảng 190 MB, có kiểm tra checksum).
+
+- Giữ nút micro trên Telegram và nói yêu cầu — reply một câu trả lời, hoặc gửi vào phiên bạn đã chọn.
+- Tin thoại được chuyển thành chữ **ngay trên máy này**: âm thanh không rời khỏi máy và bị xoá ngay.
+- Bot báo lại những gì đã nghe (`🎙️ Đã nghe: «…»`), rồi chữ được gửi vào phiên như tin nhắn gõ.
+- Tối đa 5 phút mỗi tin. Ngôn ngữ nói: tự nhận biết, hoặc cố định Tiếng Việt / English.
+- Dùng chung lần mở khoá với nhắn tin. Có thể xoá mô hình ở cùng chỗ.
+
 ### Ảnh và file
 
 **Cài đặt › Hành động nguy hiểm › Cho Chủ sở hữu gửi ảnh và file vào phiên agent** (mặc định tắt, cần bật chat với
