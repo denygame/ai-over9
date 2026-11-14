@@ -309,7 +309,7 @@ What it shows:
 - **Every display** — the main display keeps the password field clear; the others show the full view.
 - **The AI screen** — the same view in a window on any display, without locking (one button per display in the menu bar).
 - **Several macOS accounts** — each can share a summary of its AI work; the others see it here.
-- **Light on the battery** — only the clocks redraw every second; short animations on change, nothing that moves all night ([benchmark](docs/benchmark.md)).
+- **Alive, and light** — the constellation turns, the core breathes, signals travel along the wires and dust drifts up, all run by the system's animation engine: the app itself only redraws the clocks ([benchmark](docs/benchmark.md)). Motion can be turned off in Settings › Lock screen.
 
 All pictures use sample data.
 
