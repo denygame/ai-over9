@@ -295,7 +295,7 @@ Màn hình hiện gì:
 - **Mọi màn hình** — màn hình chính chừa ô mật khẩu; các màn hình khác hiện đầy đủ.
 - **Màn hình AI** — cùng giao diện trong một cửa sổ trên màn hình bất kỳ, không cần khoá máy (mỗi màn hình một nút trên thanh menu).
 - **Nhiều tài khoản macOS** — mỗi tài khoản có thể chia sẻ bản tóm tắt việc AI đang làm; các tài khoản khác thấy ở đây.
-- **Nhẹ pin** — chỉ đồng hồ vẽ lại mỗi giây; hiệu ứng ngắn khi có thay đổi, không có gì chuyển động suốt đêm ([benchmark](docs/benchmark.vi.md)).
+- **Sống động mà nhẹ** — chòm sao xoay, lõi sáng "thở", xung tín hiệu chạy dọc dây nối và bụi sao bay lên, đều do bộ máy hiệu ứng của hệ thống chạy: bản thân app chỉ vẽ lại đồng hồ ([benchmark](docs/benchmark.vi.md)). Tắt hiệu ứng trong Cài đặt › Màn hình khoá.
 
 Mọi ảnh đều dùng dữ liệu mẫu.
 
