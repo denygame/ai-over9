@@ -146,6 +146,24 @@ khởi động lại. `/lock` để khoá.
 Nếu có gì không chạy được (ví dụ thiếu công cụ dòng lệnh của agent), bot nói rõ lý do — tin không bao giờ bị bỏ qua
 trong im lặng.
 
+### Chat nhanh — hỏi model nhẹ (macOS)
+
+**Cài đặt › Chat nhanh**: chọn dịch vụ chat (OpenAI, Anthropic, Gemini, OpenRouter, DeepSeek, Ollama trên máy, hoặc địa
+chỉ tương thích OpenAI bất kỳ), dán API key (lưu trong Keychain) và chọn model (**Tải danh sách model** để xem).
+Hoặc dùng **chính gói của bạn**: *Claude Code* (gói Claude, vd. model `haiku`) hoặc *Codex CLI* (gói ChatGPT) — app hỏi
+công cụ đã đăng nhập trên máy ở chế độ chỉ đọc; tính vào hạn mức của gói đó.
+
+- `/ask <câu hỏi>` mở chat nhanh; tin thường (và tin thoại) sẽ tới đó cho tới khi bạn đóng lại.
+- `/ask done` chuyển cuộc chat thành **việc cần làm** (mục tiêu, điều đã thống nhất, tiêu chí xong) kèm nút **Giao cho <phiên>** —
+  bấm một lần là gửi vào phiên như tin nhắn gõ; agent tự lên kế hoạch chi tiết. `/new <thư mục> [claude|codex]` không
+  kèm nội dung sẽ mở phiên mới với việc đó.
+- `/ask @model <câu hỏi>` dùng model đó cho cuộc chat này (vd. `/ask @sonnet …`); `/ask models` hiện các model hay
+  dùng thành nút bấm (đặt trong Cài đặt, hoặc danh sách của dịch vụ).
+- `/ask off` để dừng, `/ask reset` để xoá hội thoại.
+- Tuỳ chọn: **Gửi kèm mô tả ngắn của dự án** — README, AGENTS.md / CLAUDE.md, cây thư mục, commit gần đây và thay đổi
+  chưa commit của dự án (tối đa khoảng 20 KB; không bao giờ có `.env`, khoá hay chứng chỉ).
+- Chỉ Chủ sở hữu, dùng chung lần mở khoá với nhắn vào agent. Tiết kiệm hạn mức agent: câu hỏi nhanh chạy trên model nhẹ.
+
 ### Tin nhắn thoại (macOS)
 
 **Cài đặt › Hành động nguy hiểm › Cho Chủ sở hữu gửi tin nhắn thoại vào phiên agent** (mặc định tắt, cần bật chat với
