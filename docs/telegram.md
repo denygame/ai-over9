@@ -157,6 +157,7 @@ tool already signed in on this computer is asked in read-only mode; it counts in
 - `/ask done` turns the chat into a **task** (goal, what was agreed, done when) with buttons **Hand to <session>** —
   one press sends it into that session like a typed message; the agent plans the details. `/new <folder>
   [claude|codex]` without a task starts a new session with it.
+- Each quick model also has its own command in the "/" menu — `/ask_haiku`, `/ask_gpt_6_luna`… — so typing `/ask` lists them.
 - `/ask @model <question>` uses that model for this chat (e.g. `/ask @sonnet …`); `/ask models` shows your quick
   models as buttons (set them in Settings, or the service's own list).
 - `/ask off` stops, `/ask reset` clears the conversation.
