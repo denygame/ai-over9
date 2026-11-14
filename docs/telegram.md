@@ -146,6 +146,17 @@ across restarts of the app. `/lock` closes it.
 If something cannot run (for example the agent's command-line tool is missing), the bot says why — a message is never
 dropped silently.
 
+### Voice messages (macOS)
+
+**Settings › Dangerous actions › Let the Owner send voice messages to agent sessions** (off by default, needs agent
+chat). Turning it on downloads the speech model once (Whisper "small", about 190 MB, checked against its checksum).
+
+- Hold the microphone in Telegram and speak your request — to a reply, or to the session you picked.
+- The voice message is turned into text **on this computer**: the audio never leaves it and is deleted right away.
+- The bot shows what it heard (`🎙️ Heard: «…»`), and the text goes to the session like a typed message.
+- Up to 5 minutes per message. Spoken language: detected automatically, or fixed to Vietnamese or English.
+- Same unlock as writing. The speech model can be deleted again in the same place.
+
 ### Photos and files
 
 **Settings › Dangerous actions › Let the Owner send photos and files to agent sessions** (off by default, needs agent
