@@ -72,7 +72,10 @@ be hidden (*Include project folder names in messages*).
 |---|---|---|
 | `/status`, `/menu` | Viewer | Overview with buttons |
 | `/why` | Viewer | Why the computer is awake, what still blocks sleep |
-| `/agents`, `/sessions` | Viewer | Agents and sessions |
+| `/agents` | Viewer | Agents |
+| `/current_sessions` | Viewer | Only the sessions still open |
+| `/sessions` · `/sessions all` · `/sessions <words>` | Viewer | All sessions: open ones first, then finished and older ones (older conversations: Owner) · more · find one |
+| `/session_project <folder>` | Viewer | The sessions of one project (without a name: choose it from buttons) |
 | `/usage`, `/reset` | Viewer | Plan limits, reset times, tokens |
 | `/awake` · `/awake 30` · `/awake off` | Viewer · Operator | Status · keep awake 30 more minutes · stop |
 | `/sleep`, `/cancel` | Operator | Sleep after checks and a countdown · cancel |
@@ -85,6 +88,9 @@ be hidden (*Include project folder names in messages*).
 | `/unlock <code>`, `/lock` | Owner | Open / close chatting with agents |
 | `/confirm <code>` | Owner | Authenticator code for a risky command you allowed (see below) |
 | `/stt` · `/stt off` | Owner | Test speech to text: the next voice message only comes back as text |
+| `/testapproval` · `/testapproval risky` | Owner | A sample approval request with the same steps as a real one; nothing runs whatever you press |
+| `/open` · `/open <name>` | Operator | Open an app from the list chosen on the Mac (Settings › Dangerous actions › Apps Telegram may open) |
+| `/lockscreen` | Owner | Lock the Mac's screen after a confirmation; unlocking is only possible at the Mac |
 | `/new <folder> [claude/codex] <task>` | Owner | Start a new agent session in a folder inside the allowed parent |
 | `/users`, `/revoke` | Owner | People |
 | `/lang en` · `/lang vi`, `/help` | Viewer | Language, help |
@@ -200,7 +206,7 @@ message: as a reply to an answer, or to the session you picked.
 
 **Settings › Dangerous actions › Approve agents' permission prompts from Telegram** (needs agent chat).
 
-- While nobody uses the computer (1–10 minutes, your choice), an agent's permission prompt — run a command, edit a
+- An agent's permission prompt (also while you use the computer — then Telegram is waited for only 1–10 minutes, your choice, before the agent asks on the computer) — run a command, edit a
   file… — arrives with the agent, project, session title and the exact command, and **✅ Allow / ❌ Deny** buttons.
 - Owner only, while unlocked. Pressing a button while locked asks for `/unlock` and offers the buttons again.
 - No answer within about 14 minutes → nothing is approved; the agent asks on the computer as usual.
@@ -228,7 +234,10 @@ Git are refused before they run, pushing and publishing always ask first, and yo
 
 ## Session buttons and new sessions
 
-- `/sessions` numbers the sessions and adds buttons for the Owner on every Claude Code and Codex session, finished ones
+- Three views: `/current_sessions` (open only), `/sessions` (all — for the Owner also older conversations from Claude
+  Code's and Codex's own history on the Mac, so one that ended days ago can be picked and continued; `/sessions all`
+  lists more, `/sessions <words>` finds one by title or project) and `/session_project <folder>`.
+- Each list numbers the sessions and adds buttons for the Owner on every Claude Code and Codex session, finished ones
   included (they continue in the background): **💬 Write to #n** sends your next messages, photos and files to that
   session (`/sessions n` does the same), **📄 Changes #n** shows the project's uncommitted changes
   (`git diff --stat`, read-only), **⏹ #n** stops the current turn of a Codex session open in a window (unlock needed).
