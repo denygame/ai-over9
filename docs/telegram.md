@@ -146,6 +146,24 @@ across restarts of the app. `/lock` closes it.
 If something cannot run (for example the agent's command-line tool is missing), the bot says why — a message is never
 dropped silently.
 
+### Quick chat — ask a light model (macOS)
+
+**Settings › Quick chat**: choose a chat service (OpenAI, Anthropic, Gemini, OpenRouter, DeepSeek, Ollama on this computer,
+or any OpenAI-compatible address), paste its API key (kept in the Keychain) and pick a model (**Load models** lists them).
+Or use **your own plan**: *Claude Code* (your Claude plan, e.g. model `haiku`) or *Codex CLI* (your ChatGPT plan) — the
+tool already signed in on this computer is asked in read-only mode; it counts in that plan's usage.
+
+- `/ask <question>` starts a quick chat; plain messages (and voice messages) go there until you close it.
+- `/ask done` turns the chat into a **task** (goal, what was agreed, done when) with buttons **Hand to <session>** —
+  one press sends it into that session like a typed message; the agent plans the details. `/new <folder>
+  [claude|codex]` without a task starts a new session with it.
+- `/ask @model <question>` uses that model for this chat (e.g. `/ask @sonnet …`); `/ask models` shows your quick
+  models as buttons (set them in Settings, or the service's own list).
+- `/ask off` stops, `/ask reset` clears the conversation.
+- Optional: **Send a short description of the project** — README, AGENTS.md / CLAUDE.md, file tree, recent commits
+  and uncommitted changes of the session's project (about 20 KB at most; never `.env`, keys or certificates).
+- Owner only, same unlock as writing to agents. Saves the agents' usage: quick questions run on the light model.
+
 ### Voice messages (macOS)
 
 **Settings › Dangerous actions › Let the Owner send voice messages to agent sessions** (off by default, needs agent
