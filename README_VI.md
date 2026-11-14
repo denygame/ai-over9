@@ -179,6 +179,8 @@ Hướng dẫn đầy đủ: [Telegram › Chat với agent](docs/telegram.vi.md
 **Duyệt từ điện thoại** *(tuỳ chọn, Cài đặt › Hành động nguy hiểm)*: khi bạn vắng máy, yêu cầu cấp quyền của Claude Code
 và Codex được gửi kèm nút **Cho phép / Từ chối**. Không có trả lời → agent hỏi trên máy; không bao giờ tự cho phép.
 
+**Chat nhanh** *(tuỳ chọn, macOS)*: `/ask <câu hỏi>` hỏi model nhẹ (ChatGPT, Claude, Gemini, OpenRouter, DeepSeek, Ollama…); `/ask done` chuyển cuộc chat thành việc cần làm, một nút giao cho phiên agent — hạn mức của agent dành cho việc làm.
+
 **Tin nhắn thoại** *(tuỳ chọn, macOS)*: nói yêu cầu trên Telegram; app chuyển thành chữ ngay trên máy (âm thanh không rời khỏi máy) rồi gửi vào phiên.
 
 **Ảnh và file** *(tuỳ chọn, Cài đặt › Hành động nguy hiểm)*: gửi ảnh chụp màn hình hay tài liệu, ghi yêu cầu ở phần chú
