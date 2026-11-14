@@ -179,6 +179,8 @@ Full guide: [Telegram › Chatting with your agents](docs/telegram.md#chatting-w
 Claude Code and Codex arrive with **Allow / Deny**. No answer → the agent asks on the computer; nothing is ever approved
 by itself.
 
+**Voice messages** *(optional, macOS)*: speak your request on Telegram; it is turned into text on your computer (the audio never leaves it) and goes to the session.
+
 **Photos and files** *(optional, Settings › Dangerous actions)*: send a screenshot or a document with your request as
 the caption; it is saved in the session's project (kept out of git) and the agent opens it.
 
