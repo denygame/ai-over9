@@ -46,6 +46,25 @@ each redraw. It now computes it once per new record or new day.
 **0.9.3** reads only the temperature sensors that give a value: in the background the mean CPU went from 1.4% to
 **1.1%** (median 0%, 95th percentile 5.1%). With the window open it stayed within the run-to-run variation (5–6%).
 
+### Lock screen and AI screen (0.9.14)
+
+Measured on an M-series MacBook (14-inch screen, Retina), drawing one frame off screen with the release build
+(`MG_UI_LOCKCARD_BENCH=1`, sample data, two runs with the same result):
+
+| What is drawn | Time per frame |
+|---|---|
+| The whole full-screen view (backdrop, neural layer, sessions, widgets) | **~24 ms** |
+| One clock text | **~0.13 ms** |
+
+**0.9.13** drew the whole view again every second on every display: about 24 ms per second for the MacBook screen,
+and roughly 2.5 times that for a 4K display, before the system's own blur and compositing. **0.9.14** redraws only
+the clock texts every second (about 1 ms), the neural layer every 6 seconds and the readings every 5 seconds — about
+15 to 20 times less drawing. The optional motion (a slow turn of the already drawn layer, a 2-point light under busy
+sessions at 12 frames per second) can be turned off in Settings › Lock screen.
+
+With the display off, nothing is drawn at all: the installed app measured 3.1% mean CPU over a minute while locked
+(display asleep).
+
 ## What this means
 
 - **Most of the time AI Over9 is in the background**, and there it costs about what a clock in the menu bar costs:
