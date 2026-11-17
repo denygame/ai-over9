@@ -67,7 +67,7 @@ Mọi thứ chạy trên máy bạn. Không tài khoản, không analytics — c
 - [Quyền hệ thống](#quyền-hệ-thống)
 - [Câu hỏi thường gặp](#câu-hỏi-thường-gặp)
 - [Gỡ cài đặt](#gỡ-cài-đặt)
-- [Giấy phép](#giấy-phép) · [Ủng hộ](#ủng-hộ)
+- [Nhãn hiệu và giấy phép bên thứ ba](#nhãn-hiệu-và-giấy-phép-bên-thứ-ba) · [Giấy phép](#giấy-phép) · [Ủng hộ](#ủng-hộ)
 
 ---
 
@@ -268,6 +268,7 @@ Mọi thao tác rủi ro đều cần bấm nút xác nhận, và quyền đư�
 - **App trên thanh menu:** khi thanh menu đầy hoặc bị tai thỏ che, bảng điều khiển liệt kê biểu tượng của mọi app và mở được từng cái. **⌥⌘9** (đổi được) mở bảng điều khiển từ bất cứ đâu.
 - **Quạt:** đọc mọi quạt; với một helper nhỏ (cài một lần bằng mật khẩu quản trị) có thể đặt tốc độ cố định, làm mát ngay, tự làm mát và lưu cấu hình. Quạt tự về Tự động khi thoát app, khi nhiệt độ cao, hoặc khi app không phản hồi.
 - **Claude Remote Control:** một công tắc cho mọi phiên Claude Code mới, để làm tiếp từ claude.ai hoặc app Claude.
+- **Ollama (model chạy trên máy):** trang riêng cho [Ollama](https://ollama.com) do bạn tự cài — bật và tắt Ollama, cài, cập nhật và xoá model, chạy hoặc giải phóng model, chat ngay trong trang, dùng cho chat nhanh. Mỗi model hiện khả năng (nhìn ảnh, tools, suy luận, embedding), độ dài ngữ cảnh và **ước tính** có hợp với máy này không (từ dung lượng model, RAM và phần RAM dành cho GPU). AI Over9 không kèm Ollama hay bất kỳ model nào — xem *Nhãn hiệu và giấy phép* bên dưới.
 - **Tự động hoá, lịch, chế độ nguồn** (Chế độ nâng cao), **Home Assistant và thiết bị HTTP**, **hệ thống và dung lượng**, **sao lưu và khôi phục**.
 
 ---
@@ -359,6 +360,7 @@ Mỗi phiên bản được phát hành cho cả ba cùng lúc. Windows và Linu
 - **Không tài khoản, không analytics.** Chỉ dùng mạng cho những gì bạn bật: bot Telegram của bạn, *Số chính xác* (hạn mức Claude / ChatGPT), Home Assistant / thiết bị HTTP của bạn, kiểm tra cập nhật (GitHub).
 - **Đếm lượt cài ẩn danh** (luôn bật, có ghi trong Cài đặt › Chung): mỗi ngày một lần app gửi một mã cài đặt ngẫu nhiên tạo trên máy bạn, phiên bản app, phiên bản hệ điều hành và loại chip — không gì khác (không tên, dự án, agent hay số liệu sử dụng). Nhờ vậy biết có bao nhiêu máy dùng AI Over9 và phiên bản nào còn cần hỗ trợ.
 - **Bí mật** (token bot, khoá Authenticator, token thiết bị) chỉ nằm trong Keychain — không bao giờ có trong file, log hay bản sao lưu.
+- **Ollama:** AI Over9 chỉ nói chuyện với máy chủ Ollama trên máy bạn (`localhost:11434`, hoặc địa chỉ bạn đặt) qua API cục bộ của chính Ollama. Khi cài hay cập nhật model, **Ollama** tự tải từ ollama.com — AI Over9 không tự gửi gì tới đó. Nội dung chat trên trang Ollama không được lưu. Thông tin RAM, chip và dung lượng trống dùng để ước tính chỉ được đọc trên máy, không gửi đi đâu.
 - **Nội dung của agent** chỉ rời khỏi máy khi bạn bật *Hành động nguy hiểm*, và chỉ tới chat Telegram của chính bạn, cho Chủ sở hữu. Ngoài ra chỉ đọc số token từ file phiên. Tên dự án trong tin nhắn có thể ẩn.
 - **Telegram:** chỉ người đã ghép nối, có phân quyền, có nút xác nhận, cần mã Authenticator để nhắn cho agent; không bao giờ chạy lệnh shell.
 - **File cấu hình của agent** được gộp và sao lưu; chỉ thêm hoặc gỡ các dòng của AI Over9.
@@ -414,6 +416,12 @@ Bật **Số chính xác** (trang Sử dụng, hoặc link xanh trên Tổng qua
 3. Tuỳ chọn: `rm -rf ~/Library/Application\ Support/AIOver9`. Các mục Keychain nằm dưới `dev.huynt.aiover9`.
 
 ---
+
+## Nhãn hiệu và giấy phép bên thứ ba
+
+- **Ollama** là dự án mã nguồn mở độc lập; tên "Ollama" và logo thuộc về chủ sở hữu. AI Over9 **không liên kết, không được Ollama bảo trợ hay tài trợ**. App làm việc với Ollama do bạn tự cài từ [ollama.com](https://ollama.com) và **không kèm, không đóng gói, không phân phối lại** Ollama hay bất kỳ file nào của Ollama. Trang Ollama trong app hiện biểu tượng của app Ollama đã cài trên máy bạn, do macOS cung cấp; README và website không dùng logo Ollama.
+- **Model** không thuộc AI Over9. Mỗi model do tác giả riêng phát hành theo **giấy phép hoặc điều khoản sử dụng riêng** (ví dụ giấy phép Llama, Gemma, Qwen), ghi trên trang của model trong [thư viện Ollama](https://ollama.com/library). AI Over9 chỉ nhờ Ollama trên máy bạn tải, chạy hoặc xoá model theo yêu cầu của bạn; việc tuân thủ giấy phép của model — kể cả giới hạn dùng cho mục đích thương mại — là trách nhiệm của người dùng.
+- **Claude, Claude Code, Codex, ChatGPT, Telegram** và các tên sản phẩm khác thuộc về chủ sở hữu, chỉ được nhắc tới để nói AI Over9 làm việc với gì.
 
 ## Giấy phép
 
