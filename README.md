@@ -66,7 +66,7 @@ Everything runs locally. No account, no analytics — only an anonymous daily in
 - [Permissions](#permissions)
 - [FAQ and troubleshooting](#faq-and-troubleshooting)
 - [Uninstall](#uninstall)
-- [License](#license) · [Support](#support)
+- [Trademarks and licences](#trademarks-and-licences) · [License](#license) · [Support](#support)
 
 ---
 
@@ -281,6 +281,7 @@ Every risky action asks for a confirmation button, and permissions are checked a
 - **Menu bar apps:** when the menu bar is full or behind the notch, the panel lists every app's icon and opens any of them. **⌥⌘9** (changeable) opens the panel from anywhere.
 - **Fans:** read every fan; with a small helper (installed once with your password) set constant speeds, cool now, auto-cool and saved profiles. Fans return to Automatic on quit, on high temperature and if the app stops responding.
 - **Claude Remote Control:** one switch for every new Claude Code session, to continue it from claude.ai or the Claude app.
+- **Ollama (local models):** a page of its own for an [Ollama](https://ollama.com) you installed yourself — start and stop it, install, update and remove models, run or free one, chat with it right in the page, use it for quick chat. Each model shows what it can do (vision, tools, thinking, embedding), its context and an **estimate** of whether it fits this Mac (from the model's size, the memory and the GPU's share of it). AI Over9 does not include Ollama or any model — see *Trademarks and licences* below.
 - **Automations, schedules, power modes** (Advanced mode), **Home Assistant and HTTP devices**, **system and storage** views, **backup and restore**.
 
 ---
@@ -376,6 +377,7 @@ Every version is published for all three at once. Windows and Linux share one ap
 - **Agent content** leaves the computer only if you turn on *Dangerous actions*, and then only to your own Telegram chat, for the Owner. Otherwise only token counts are read from session files. Project names in messages are optional.
 - **Telegram:** paired people only, roles, confirmations, an authenticator code to write to agents; no shell commands, ever.
 - **Agent configuration files** are merged and backed up; only AI Over9's own entries are added or removed.
+- **Ollama:** AI Over9 only talks to the Ollama server on your computer (`localhost:11434`, or the address you set) through Ollama's own local API. Installing or updating a model makes **Ollama** download it from ollama.com — AI Over9 sends nothing there itself. Chats on the Ollama page are not saved. The memory, chip and free-disk figures used for the fit estimate are read on the computer and never sent anywhere.
 
 ---
 
@@ -428,6 +430,12 @@ Turn on **Exact numbers** (Usage, or the green link on the Dashboard). Without i
 3. Optional: `rm -rf ~/Library/Application\ Support/AIOver9`. Keychain items are under `dev.huynt.aiover9`.
 
 ---
+
+## Trademarks and licences
+
+- **Ollama** is an independent open-source project; "Ollama" and its logo belong to their owners. AI Over9 is **not affiliated with, endorsed or sponsored by Ollama**. It works with an Ollama you install yourself from [ollama.com](https://ollama.com) and **does not include, bundle or redistribute** Ollama or any of its files. The Ollama page shows the icon of the Ollama app installed on your computer, as macOS provides it; this README and the website do not use the Ollama logo.
+- **Models** are not part of AI Over9. Each one is published by its own author under **its own licence or terms of use** (for example the Llama, Gemma or Qwen licences), shown on its page in the [Ollama library](https://ollama.com/library). AI Over9 only asks your Ollama to download, run or remove a model at your request; complying with a model's licence — including any limits on commercial use — is up to you.
+- **Claude, Claude Code, Codex, ChatGPT, Telegram** and other product names belong to their owners and are used only to say what AI Over9 works with.
 
 ## License
 
