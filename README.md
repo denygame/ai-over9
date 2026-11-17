@@ -38,6 +38,11 @@ AI agents now work for hours, in several sessions, in several projects at once. 
 Everything runs locally. No account, no analytics — only an anonymous daily install count (see [Privacy](#privacy-and-security)).
 
 <p align="center">
+  <a href="media/ai-over9-launch.mp4"><img src="images/launch-video.jpg" alt="AI Over9 in 60 seconds: lock screen, approvals and questions from Telegram, then the Mac sleeps" width="860"></a>
+  <br><sub>🎬 <b>AI Over9 in 60 seconds</b> (sample data, with sound) — <a href="media/ai-over9-launch.mp4">play the video</a> · <a href="media/ai-over9-launch-vi.mp4">Vietnamese version</a></sub>
+</p>
+
+<p align="center">
   <img src="images/demo-telegram.gif" alt="Demo: three agent sessions on a Mac, one Telegram chat receiving their answers and sending replies into each session" width="860">
   <br><sub>▶️ 36-second animated demo with sample data — <a href="media/ai-over9-telegram-demo.mp4">watch in full HD</a>. Three sessions, two agents, one chat.</sub>
 </p>
