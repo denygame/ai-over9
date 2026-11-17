@@ -38,6 +38,11 @@ Agent AI giờ làm việc hàng giờ liền, nhiều phiên, nhiều dự án 
 Mọi thứ chạy trên máy bạn. Không tài khoản, không analytics — chỉ có lượt đếm cài đặt ẩn danh mỗi ngày (xem [Quyền riêng tư](#quyền-riêng-tư-và-bảo-mật)).
 
 <p align="center">
+  <a href="media/ai-over9-launch-vi.mp4"><img src="images/launch-video-vi.jpg" alt="AI Over9 trong 60 giây: màn hình khoá, duyệt và trả lời câu hỏi từ Telegram, rồi máy tự ngủ" width="860"></a>
+  <br><sub>🎬 <b>AI Over9 trong 60 giây</b> (dữ liệu mẫu, có nhạc) — <a href="media/ai-over9-launch-vi.mp4">xem video</a> · <a href="media/ai-over9-launch.mp4">bản tiếng Anh</a></sub>
+</p>
+
+<p align="center">
   <img src="images/demo-telegram.gif" alt="Demo: ba phiên agent trên Mac, một cuộc chat Telegram nhận câu trả lời và gửi tin reply vào đúng từng phiên" width="860">
   <br><sub>▶️ Demo động 36 giây với dữ liệu mẫu (tiếng Anh) — <a href="media/ai-over9-telegram-demo.mp4">xem bản Full HD</a>. Ba phiên, hai agent, một cuộc chat.</sub>
 </p>
